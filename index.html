@@ -12,64 +12,71 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="draft-tools/memo.css">
 </head>
-<body>
+<body data-page="トップ">
 
 <!-- デザイン案です。日付・費用・名前は今のサイトから写したもので、学会の確認前です -->
+<!-- 帯・お知らせの帯・ヘッダー・フッターは、ここで直してから python3 tools/parts.py でほかのページへ写す -->
 
+<!-- part:bar -->
 <!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
-<div class="dm-bar dm-ui" data-version="v1" data-date="2026-11-03">
-<p><b>デザイン案 v1</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<div class="dm-bar dm-ui" data-version="v2" data-date="2026-11-03">
+<p><b>デザイン案 v2</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
 <button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
 </div>
+<!-- /part:bar -->
 
-<div class="notice" data-sec="A" data-sec-name="重要なお知らせの帯" role="region" aria-label="重要なお知らせ">
-<div class="wrap"><b>重要</b><span>McGill 外科教育スカラーシップ 2027年度の募集は、10月31日で締め切りました。<a href="#">くわしく</a></span></div>
+<!-- part:notice -->
+<div class="notice" data-sec="重要なお知らせの帯" role="region" aria-label="重要なお知らせ">
+<div class="wrap"><b>重要</b><span>McGill 外科教育スカラーシップ 2027年度の募集は、2026年10月31日で締め切りました。<a href="scholarship.html">くわしく</a></span></div>
 </div>
+<!-- /part:notice -->
 
-<header class="hd" data-sec="B" data-sec-name="ヘッダーとメニュー">
+<!-- part:header -->
+<header class="hd" data-sec="ヘッダーとメニュー">
 <div class="wrap">
-<a class="brand" href="#" aria-label="日本外科教育学会 トップへ">
+<a class="brand" href="index.html" aria-label="日本外科教育学会 トップへ">
 <img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
 <div><b>日本外科教育学会</b><span>Japanese Association for Surgical Education</span></div>
 </a>
 <nav class="gnav" aria-label="メインメニュー">
-<a href="#"><b>Summit</b><span>学術集会</span></a>
-<a href="#"><b>Workshops</b><span>講習会</span></a>
-<a href="#"><b>Scholarship</b><span>留学奨学金</span></a>
-<a href="#"><b>Library</b><span>教材と動画</span></a>
-<a href="#news"><b>News</b><span>お知らせ</span></a>
-<a href="#"><b>About</b><span>学会について</span></a>
-<a class="sp-only ext" href="#">会員マイページ</a>
+<a href="summit.html"><b>Summit</b><span>学術集会</span></a>
+<a href="workshops.html"><b>Workshops</b><span>講習会</span></a>
+<a href="scholarship.html"><b>Scholarship</b><span>留学奨学金</span></a>
+<a href="library.html"><b>Library</b><span>教材と動画</span></a>
+<a href="news.html"><b>News</b><span>お知らせ</span></a>
+<a href="about.html"><b>About</b><span>学会について</span></a>
+<a class="sp-only ext" href="#" data-todo="smoosy">会員マイページ</a>
 </nav>
 <div class="acts">
-<a class="btn join" href="#join">入会のご案内</a>
-<a class="btn my" href="#"><span><span class="pc-only">会員</span>マイページ ↗</span><small>会費・参加費のお支払い</small></a>
+<a class="btn join" href="join.html">入会のご案内</a>
+<a class="btn my" href="#" data-todo="smoosy"><span>会員マイページ ↗</span><small>会費・参加費のお支払い</small></a>
 <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false"><i></i></button>
 </div>
 </div>
 </header>
+<!-- /part:header -->
 
 <main>
 <section class="hero">
 <div class="wrap">
-<div data-sec="C" data-sec-name="最初の画面">
+<div data-sec="最初の画面">
 <p class="eyebrow">FROM EXPERIENCE TO SCIENCE</p>
 <h1 class="phrase">経験から<br><span class="em">科学</span>へ。</h1>
 <p class="tag phrase">外科教育者を育て、高め合う仲間と環境を紡ぐ</p>
 <div class="rule"></div>
 <p class="lead">日本外科教育学会は、外科医が「教える力」を学び、外科の教え方そのものを研究する学会です。手術と診療を広くあつかう学会とは別に、外科の「教え方」を専門にしています。<span class="pc-only">経験に頼ってきた外科教育を、科学に基づくものへ変えていきます。</span></p>
-<div class="more"><a class="btn navy" href="#">学会について</a><a class="btn line pc-only" href="#pillars" style="color:var(--navy)">3つの活動を見る</a></div>
+<div class="more"><a class="btn navy" href="about.html">学会について</a><a class="btn line pc-only" href="#pillars" style="color:var(--navy)">3つの活動を見る</a></div>
 </div>
 
-<div class="car" data-sec="D" data-sec-name="カルーセル" aria-roledescription="carousel" aria-label="注目のお知らせ">
+<div class="car" data-sec="カルーセル" aria-roledescription="carousel" aria-label="注目のお知らせ">
 <div class="track">
 <article class="slide s1x" aria-roledescription="slide" aria-label="1枚目（全3枚）">
 <div class="bg"></div>
 <p class="kind">講習会 WORKSHOPS　受付中</p>
 <p class="big">Surgeons as Educators</p>
 <p class="ja">外科指導医のためのワークショップ Course I</p>
-<p class="meta">2027年2月20日（土）・21日（日）　聖路加国際大学</p>
-<a class="go" href="#">くわしく見る</a>
+<p class="meta"><span class="nw">2027年2月20日（土）・21日（日）</span>　<span class="nw">聖路加国際大学</span></p>
+<a class="go" href="workshops.html#courses">くわしく見る</a>
 </article>
 <article class="slide s2x" aria-roledescription="slide" aria-label="2枚目（全3枚）">
 <div class="bg"></div>
@@ -77,14 +84,14 @@
 <p class="big ja-big">第14回 学術集会</p>
 <p class="ja">Surgical Education Summit 2027（SES2027）</p>
 <p class="meta">日程と会場は、決まりしだいお知らせします</p>
-<a class="go" href="#">学術集会のページへ</a>
+<a class="go" href="summit.html">学術集会のページへ</a>
 </article>
 <article class="slide s3" aria-roledescription="slide" aria-label="3枚目（全3枚）">
 <div class="bg"><div class="thumb"></div><div class="play"></div></div>
 <p class="kind">動画 VIDEOS　新着</p>
 <p class="ja" style="font-size:19px">新しい動画の題名がここに入ります</p>
 <p class="meta">学会のYouTubeチャンネルの新着です</p>
-<a class="go" href="#">動画を見る</a>
+<a class="go" href="library.html#videos">動画を見る</a>
 </article>
 </div>
 <div class="dots" role="tablist"><button aria-label="1枚目" aria-current="true"></button><button aria-label="2枚目"></button><button aria-label="3枚目"></button></div>
@@ -94,11 +101,11 @@
 </div>
 </section>
 
-<section class="sec pillars" id="pillars" data-sec="E" data-sec-name="3つの活動">
+<section class="sec pillars" id="pillars" data-sec="3つの活動">
 <div class="wrap">
 <div class="sec-hd"><div><span class="en">What We Do</span><h2>学会の3つの活動</h2></div></div>
 <div class="p-grid">
-<a class="p-card" href="#">
+<a class="p-card" href="summit.html">
 <span class="num">01</span>
 <span class="en">Summit</span>
 <span class="ja">学術集会</span>
@@ -107,7 +114,7 @@
 <span class="next"><b>次回</b>第14回（2027年）日程は調整中</span>
 <span class="go">学術集会へ</span>
 </a>
-<a class="p-card" href="#">
+<a class="p-card" href="workshops.html">
 <span class="num">02</span>
 <span class="en">Workshops</span>
 <span class="ja">講習会</span>
@@ -116,55 +123,55 @@
 <span class="next"><b>受付中</b>Course I　2027年2月20日・21日</span>
 <span class="go">講習会へ</span>
 </a>
-<a class="p-card" href="#">
+<a class="p-card" href="scholarship.html">
 <span class="num">03</span>
 <span class="en">Scholarship</span>
 <span class="ja">留学奨学金</span>
 <span class="full">McGill Surgical Education Scholarship</span>
-<p class="phrase">カナダのマギル大学で外科教育を2年間学ぶ人を、生活費と学費を全額支給します。</p>
+<p class="phrase">カナダのマギル大学の大学院で外科教育を2年間学ぶ人に、毎月の生活費と学費を支給します。</p>
 <span class="next"><b>募集</b>2027年度の募集は締め切りました</span>
 <span class="go">留学奨学金へ</span>
 </a>
 </div>
-<a class="resident" href="#"><b>新しく</b>研修医のためのワークショップを2026年度から始めます。日程は決まりしだい、講習会のページでお知らせします。<span class="go">講習会のページへ →</span></a>
+<a class="resident" href="workshops.html#resident"><b>新しく</b>研修医のためのワークショップを<span class="nw">2026年度</span>から始めます。日程は決まりしだい、講習会のページでお知らせします。<span class="go">講習会のページへ →</span></a>
 </div>
 </section>
 
-<section class="sec" id="news" data-sec="F" data-sec-name="お知らせ">
+<section class="sec" id="news" data-sec="お知らせ">
 <div class="wrap">
-<div class="sec-hd"><div><span class="en">News</span><h2>お知らせ</h2></div><a class="link" href="#">お知らせの一覧へ</a></div>
+<div class="sec-hd"><div><span class="en">News</span><h2>お知らせ</h2></div><a class="link" href="news.html">お知らせの一覧へ</a></div>
 <div class="news-list">
-<a href="#"><time>2026.10.03</time><span class="label k">募集</span><span class="t">外科指導医のためのワークショップ Course I（2027年2月）の申込を始めました</span></a>
-<a href="#"><time>2026.09.24</time><span class="label k">募集</span><span class="t">リーダー外科医のためのワークショップ（Surgeons as Leaders）のご案内</span></a>
-<a href="#"><time>2026.06.02</time><span class="label k">募集</span><span class="t">外科指導医のためのワークショップ Course II のご案内</span></a>
-<a href="#"><time>2026.05.13</time><span class="label k">募集</span><span class="t">McGill 外科教育スカラーシップ 2027年度の募集</span></a>
-<a href="#"><time>2026.04.03</time><span class="label">お知らせ</span><span class="t">書籍『外科医の育て方―外科教育を科学する』が発売されました</span></a>
+<a href="news-article.html"><time>2026.10.03</time><span class="label k">募集</span><span class="t">外科指導医のためのワークショップ（2027年2月）の申込を始めました</span></a>
+<a href="#" data-todo="article"><time>2026.09.24</time><span class="label k">募集</span><span class="t">リーダー外科医のためのワークショップ（Surgeons as Leaders）のご案内</span></a>
+<a href="#" data-todo="article"><time>2026.06.02</time><span class="label k">募集</span><span class="t">外科指導医のためのワークショップ Course II（2026年秋）のご案内</span></a>
+<a href="#" data-todo="article"><time>2026.05.13</time><span class="label k">募集</span><span class="t">McGill 外科教育スカラーシップ 2027年度の募集</span></a>
+<a href="#" data-todo="article"><time>2026.04.28</time><span class="label k">募集</span><span class="t">外科指導医のためのワークショップ（2026年秋）のご案内</span></a>
 </div>
 </div>
 </section>
 
-<section class="sec videos" data-sec="G" data-sec-name="動画と対談">
+<section class="sec videos" data-sec="動画と対談">
 <div class="wrap">
-<div class="sec-hd"><div><span class="en">Videos</span><h2>動画と対談</h2></div><a class="link ext" href="#">YouTubeチャンネル</a></div>
+<div class="sec-hd"><div><span class="en">Videos</span><h2>動画と対談</h2></div><a class="link ext" href="#" data-todo="youtube">YouTubeチャンネル</a></div>
 <div class="v-grid">
-<a class="v-card" href="#"><div class="th"><small>YouTube</small></div><p>動画の題名がここに入ります（新しい順に自動）</p><time>2026.10</time></a>
-<a class="v-card" href="#"><div class="th"><small>YouTube</small></div><p>動画の題名がここに入ります</p><time>2026.09</time></a>
-<a class="v-card" href="#"><div class="th"><small>YouTube</small></div><p>動画の題名がここに入ります</p><time>2026.08</time></a>
+<a class="v-card" href="#" data-todo="youtube"><div class="th"><small>YouTube</small></div><p>動画の題名がここに入ります（新しい順に自動）</p><time>2026.10</time></a>
+<a class="v-card" href="#" data-todo="youtube"><div class="th"><small>YouTube</small></div><p>動画の題名がここに入ります</p><time>2026.09</time></a>
+<a class="v-card" href="#" data-todo="youtube"><div class="th"><small>YouTube</small></div><p>動画の題名がここに入ります</p><time>2026.08</time></a>
 </div>
 </div>
 </section>
 
-<section id="join" data-sec="H" data-sec-name="入会の帯">
+<section id="join" data-sec="入会の帯">
 <div class="wrap">
 <div class="join-band">
 <div>
 <p class="en">JOIN JASE</p>
 <h2 class="phrase">このサイトの中身は、<br>入会しなくてもすべて読めます。</h2>
 <p>会員になると、次のことができます。</p>
-<div class="acts"><a class="btn join" href="#">入会のご案内</a><a class="btn my ext" href="#">会員マイページ</a></div>
+<div class="acts"><a class="btn join" href="join.html">入会のご案内</a><a class="btn my ext" href="#" data-todo="smoosy">会員マイページ</a></div>
 </div>
 <ul>
-<li>学術集会と講習会が会員料金になります（講習会では2万円の差があるものも）</li>
+<li>学術集会と講習会が会員料金になります（講習会では<span class="nw">2万円</span>の差があるものも）</li>
 <li>学術集会で筆頭演者として発表できます</li>
 <li>学生は年会費が無料です</li>
 </ul>
@@ -173,46 +180,21 @@
 </section>
 </main>
 
-<footer class="ft" data-sec="I" data-sec-name="フッター">
+<!-- part:footer -->
+<footer class="ft" data-sec="フッター">
 <div class="wrap">
 <div>
-<a class="brand" href="#"><img src="img/jase_seal.png" alt=""><div><b>一般社団法人 日本外科教育学会</b><span>Japanese Association for Surgical Education</span></div></a>
+<a class="brand" href="index.html"><img src="img/jase_seal.png" alt=""><div><b>一般社団法人 日本外科教育学会</b><span>Japanese Association for Surgical Education</span></div></a>
 <address>〒104-0044 東京都中央区明石町9-1<br>contact@surgicaleducation.jp</address>
 </div>
-<div><h3>サイト</h3><ul><li><a href="#">学術集会</a></li><li><a href="#">講習会</a></li><li><a href="#">留学奨学金</a></li><li><a href="#">教材と動画</a></li><li><a href="#news">お知らせ</a></li><li><a href="#">学会について</a></li></ul></div>
-<div><h3>ご案内</h3><ul><li><a href="#join">入会のご案内</a></li><li><a class="ext" href="#">会員マイページ </a></li><li><a href="#">お問い合わせ</a></li><li><a href="#">プライバシーポリシー</a></li><li><a href="#">特定商取引法に基づく表記</a></li><li><a href="#">サイトの地図</a></li><li><a class="ext" href="#">YouTube </a></li></ul></div>
+<div><h3>Site<small>サイト</small></h3><ul><li><a href="summit.html">学術集会</a></li><li><a href="workshops.html">講習会</a></li><li><a href="scholarship.html">留学奨学金</a></li><li><a href="library.html">教材と動画</a></li><li><a href="news.html">お知らせ</a></li><li><a href="about.html">学会について</a></li></ul></div>
+<div><h3>Guide<small>ご案内</small></h3><ul><li><a href="join.html">入会のご案内</a></li><li><a class="ext" href="#" data-todo="smoosy">会員マイページ </a></li><li><a href="contact.html">お問い合わせ</a></li><li><a href="#" data-todo="page">プライバシーポリシー</a></li><li><a href="#" data-todo="page">特定商取引法に基づく表記</a></li><li><a href="#" data-todo="page">サイトの地図</a></li><li><a class="ext" href="#" data-todo="youtube">YouTube </a></li></ul></div>
 </div>
 <p class="copy">© Japanese Association for Surgical Education</p>
 </footer>
+<!-- /part:footer -->
 
-<script>
-(function(){
-  var hd=document.querySelector('.hd'), mb=document.querySelector('.menu-btn');
-  mb.addEventListener('click',function(){var o=hd.classList.toggle('open');mb.setAttribute('aria-expanded',o?'true':'false');mb.setAttribute('aria-label',o?'メニューを閉じる':'メニューを開く')});
-})();
-(function(){
-  var car=document.querySelector('.car'); if(!car) return;
-  var track=car.querySelector('.track'), slides=car.querySelectorAll('.slide'), dots=car.querySelectorAll('.dots button');
-  var i=0, timer=null, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function go(n){
-    i=(n+slides.length)%slides.length;
-    track.style.transform='translateX('+(-100*i)+'%)';
-    dots.forEach(function(d,k){d.setAttribute('aria-current',k===i?'true':'false')});
-    slides.forEach(function(s,k){s.setAttribute('aria-hidden',k===i?'false':'true')});
-  }
-  function start(){ if(!reduce){ stop(); timer=setInterval(function(){go(i+1)},6000);} }
-  function stop(){ if(timer){clearInterval(timer);timer=null;} }
-  car.querySelector('.next').addEventListener('click',function(){go(i+1);start()});
-  car.querySelector('.prev').addEventListener('click',function(){go(i-1);start()});
-  dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);start()})});
-  var pb=car.querySelector('.pause'), paused=false;
-  pb.addEventListener('click',function(){paused=!paused; if(paused){stop();pb.textContent='▶';pb.setAttribute('aria-label','自動の切りかえを再開する')}else{start();pb.textContent='Ⅱ';pb.setAttribute('aria-label','自動の切りかえを止める')}});
-  var _start=start; start=function(){ if(!paused) _start(); };
-  car.addEventListener('mouseenter',stop); car.addEventListener('mouseleave',start);
-  car.addEventListener('focusin',stop); car.addEventListener('focusout',start);
-  go(0); start();
-})();
-</script>
+<script src="site.js"></script>
 <script src="draft-tools/memo.js"></script>
 </body>
 </html>

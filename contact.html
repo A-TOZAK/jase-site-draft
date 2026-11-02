@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【デザイン案】お問い合わせ｜日本外科教育学会</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="日本外科教育学会へのお問い合わせのページです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="draft-tools/memo.css">
+</head>
+<body data-page="お問い合わせ">
+
+<!-- 帯・お知らせの帯・ヘッダー・フッターは index.html から tools/parts.py で写す。ここでは直さない -->
+<!-- part:bar -->
+<!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
+<div class="dm-bar dm-ui" data-version="v2" data-date="2026-11-03">
+<p><b>デザイン案 v2</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
+</div>
+<!-- /part:bar -->
+<!-- part:notice -->
+<div class="notice" data-sec="重要なお知らせの帯" role="region" aria-label="重要なお知らせ">
+<div class="wrap"><b>重要</b><span>McGill 外科教育スカラーシップ 2027年度の募集は、2026年10月31日で締め切りました。<a href="scholarship.html">くわしく</a></span></div>
+</div>
+<!-- /part:notice -->
+<!-- part:header -->
+<header class="hd" data-sec="ヘッダーとメニュー">
+<div class="wrap">
+<a class="brand" href="index.html" aria-label="日本外科教育学会 トップへ">
+<img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
+<div><b>日本外科教育学会</b><span>Japanese Association for Surgical Education</span></div>
+</a>
+<nav class="gnav" aria-label="メインメニュー">
+<a href="summit.html"><b>Summit</b><span>学術集会</span></a>
+<a href="workshops.html"><b>Workshops</b><span>講習会</span></a>
+<a href="scholarship.html"><b>Scholarship</b><span>留学奨学金</span></a>
+<a href="library.html"><b>Library</b><span>教材と動画</span></a>
+<a href="news.html"><b>News</b><span>お知らせ</span></a>
+<a href="about.html"><b>About</b><span>学会について</span></a>
+<a class="sp-only ext" href="#" data-todo="smoosy">会員マイページ</a>
+</nav>
+<div class="acts">
+<a class="btn join" href="join.html">入会のご案内</a>
+<a class="btn my" href="#" data-todo="smoosy"><span>会員マイページ ↗</span><small>会費・参加費のお支払い</small></a>
+<button class="menu-btn" aria-label="メニューを開く" aria-expanded="false"><i></i></button>
+</div>
+</div>
+</header>
+<!-- /part:header -->
+
+<main>
+<section class="ph" data-sec="ページの見出し">
+<div class="wrap">
+<nav class="crumb" aria-label="現在地"><a href="index.html">トップ</a><i>›</i><span>お問い合わせ</span></nav>
+<div class="ph-body">
+<div>
+<p class="ph-en">Contact</p>
+<h1>お問い合わせ<small>Contact JASE</small></h1>
+</div>
+<p class="ph-lead phrase">学会へのお問い合わせは、下のフォームからお送りください。返事は、事務局からメールでお送りします。</p>
+</div>
+</div>
+</section>
+
+<section class="sec" id="first" data-sec="先に見てほしいところ">
+<div class="wrap">
+<div class="sec-hd"><div><span class="en">Before You Ask</span><h2>先にこちらをご覧ください</h2></div></div>
+<div class="cards3">
+<a class="card" href="#" data-todo="smoosy"><p class="h3">講習会の申込と、会費・参加費の支払い</p><p>会員マイページから手続きできます。</p><span class="go">会員マイページへ</span></a>
+<a class="card" href="join.html"><p class="h3">入会の手続き</p><p>会員の種類、年会費、入会の流れを載せています。</p><span class="go">入会のご案内へ</span></a>
+<a class="card" href="summit.html"><p class="h3">学術集会の参加登録と演題募集</p><p>その年の特設サイトで受け付けます。</p><span class="go">学術集会のページへ</span></a>
+</div>
+</div>
+</section>
+
+<section class="sec white" id="form" data-sec="お問い合わせのフォーム">
+<div class="wrap">
+<div class="sec-hd"><div><span class="en">Form</span><h2>お問い合わせのフォーム</h2></div></div>
+<form class="form" data-todo="form" novalidate>
+<div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" autocomplete="name"></div>
+<div class="field"><label for="f-mail">メールアドレス<span class="req">必須</span></label><input id="f-mail" name="email" type="email" autocomplete="email"></div>
+<div class="field"><label for="f-org">ご所属</label><input id="f-org" name="org" autocomplete="organization"></div>
+<div class="field"><label for="f-kind">お問い合わせの種類<span class="req">必須</span></label><select id="f-kind" name="kind"><option>入会について</option><option>会費・参加費の支払いについて</option><option>学術集会について</option><option>講習会について</option><option>留学奨学金について</option><option>そのほか</option></select></div>
+<div class="field"><label for="f-body">お問い合わせの内容<span class="req">必須</span></label><textarea id="f-body" name="body"></textarea></div>
+<label class="check"><input type="checkbox" name="agree"><span><a href="#" data-todo="page">プライバシーポリシー</a>に同意します</span></label>
+<button class="btn navy" type="submit">送る</button>
+</form>
+<p class="mail">メールでも受け付けています。<b>contact@surgicaleducation.jp</b></p>
+<p class="dm-note dm-ui">下書きなので、このフォームからは何も送られません。本番では、迷惑メールを防ぐしくみをつけてから、事務局のメールに届くようにします。</p>
+</div>
+</section>
+</main>
+
+<!-- part:footer -->
+<footer class="ft" data-sec="フッター">
+<div class="wrap">
+<div>
+<a class="brand" href="index.html"><img src="img/jase_seal.png" alt=""><div><b>一般社団法人 日本外科教育学会</b><span>Japanese Association for Surgical Education</span></div></a>
+<address>〒104-0044 東京都中央区明石町9-1<br>contact@surgicaleducation.jp</address>
+</div>
+<div><h3>Site<small>サイト</small></h3><ul><li><a href="summit.html">学術集会</a></li><li><a href="workshops.html">講習会</a></li><li><a href="scholarship.html">留学奨学金</a></li><li><a href="library.html">教材と動画</a></li><li><a href="news.html">お知らせ</a></li><li><a href="about.html">学会について</a></li></ul></div>
+<div><h3>Guide<small>ご案内</small></h3><ul><li><a href="join.html">入会のご案内</a></li><li><a class="ext" href="#" data-todo="smoosy">会員マイページ </a></li><li><a href="contact.html">お問い合わせ</a></li><li><a href="#" data-todo="page">プライバシーポリシー</a></li><li><a href="#" data-todo="page">特定商取引法に基づく表記</a></li><li><a href="#" data-todo="page">サイトの地図</a></li><li><a class="ext" href="#" data-todo="youtube">YouTube </a></li></ul></div>
+</div>
+<p class="copy">© Japanese Association for Surgical Education</p>
+</footer>
+<!-- /part:footer -->
+
+<script src="site.js"></script>
+<script src="draft-tools/memo.js"></script>
+</body>
+</html>

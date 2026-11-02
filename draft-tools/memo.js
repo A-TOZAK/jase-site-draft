@@ -1,22 +1,28 @@
 /* 下書きのときだけ使う道具：気になる所メモ。
    ページの場所を押して一言書き、まとめてコピーして渡す。
    メモはこのブラウザの中（localStorage）にだけ残り、ほかの人には見えない。
+   版ごとに1つの箱で、どのページで書いたメモも、まとめてコピーできる。
+   区画の記号（A、B、C…）は、ページの上から順に自動でつく。区画の名前は data-sec に書く。
    本番では draft-tools/ ごと外す。 */
 (function(){
   var bar=document.querySelector('.dm-bar'); if(!bar) return;
   var VER=bar.getAttribute('data-version')||'v1';
   var KEY='jase-draft-memo:'+VER;
+  var PAGE=location.pathname.split('/').pop()||'index.html';
+  var PNAME=document.body.getAttribute('data-page')||document.title;
   var toggle=bar.querySelector('.dm-toggle'), count=bar.querySelector('.dm-count');
   var memos=load(), on=false, bypass=false, hoverEl=null, pending=null;
 
   function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return []}}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(memos))}catch(e){}}
   function el(tag,cls,txt){var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e}
+  function pageOf(m){return m.page||'index.html'}
+  function here(m){return pageOf(m)===PAGE}
 
   var panel=el('div','dm-panel dm-ui'); panel.hidden=true;
   panel.setAttribute('role','dialog'); panel.setAttribute('aria-label','気になる所のメモ');
   panel.innerHTML='<p class="dm-h">気になる所のメモ</p>'+
-    '<p class="dm-help">ページの気になる所を押すと、そこへのメモを書けます。</p>'+
+    '<p class="dm-help">ページの気になる所を押すと、そこへのメモを書けます。ほかのページで書いたメモも、ここにまとめて残ります。</p>'+
     '<ol class="dm-list"></ol><p class="dm-done" aria-live="polite"></p>'+
     '<div class="dm-btns"><button type="button" class="dm-copy">まとめてコピー</button>'+
     '<button type="button" class="dm-clear">すべて消す</button>'+
@@ -30,10 +36,17 @@
     '<div class="dm-btns"><button type="button" class="dm-save">メモする</button>'+
     '<button type="button" class="dm-cancel">やめる</button></div>';
   var where=sheet.querySelector('.dm-where'), ta=sheet.querySelector('textarea');
-  document.body.appendChild(panel); document.body.appendChild(sheet);
+
+  var toast=el('p','dm-toast dm-ui'); toast.hidden=true; toast.setAttribute('role','status');
+  document.body.appendChild(panel); document.body.appendChild(sheet); document.body.appendChild(toast);
 
   function view(){return window.innerWidth<768?'スマホ':'パソコン'}
-  function secOf(t){var s=t.closest('[data-sec]'); return s?{id:s.getAttribute('data-sec'),name:s.getAttribute('data-sec-name')}:{id:'-',name:'区画の外'}}
+  function secs(){return Array.prototype.slice.call(document.querySelectorAll('[data-sec]'))}
+  function letter(i){return String.fromCharCode(65+i)}
+  function secOf(t){
+    var s=t.closest('[data-sec]');
+    return s?{id:letter(secs().indexOf(s)),name:s.getAttribute('data-sec')}:{id:'-',name:'区画の外'};
+  }
   function what(t){
     var x=t.getAttribute('aria-label')||t.getAttribute('alt')||(t.innerText||'').replace(/\s+/g,' ').trim();
     if(!x) return '文字のない部分';
@@ -48,10 +61,14 @@
     }
     return 'body>'+parts.join('>');
   }
-  function find(m){try{return document.querySelector(m.path)}catch(e){return null}}
+  function find(m){if(!here(m)) return null; try{return document.querySelector(m.path)}catch(e){return null}}
   function markAll(){memos.forEach(function(m){var t=find(m); if(t) t.classList.add('dm-marked')})}
   function unmarkAll(){document.querySelectorAll('.dm-marked').forEach(function(t){t.classList.remove('dm-marked')})}
   function flash(t){t.classList.add('dm-flash'); setTimeout(function(){t.classList.remove('dm-flash')},1200)}
+  function goTo(m){
+    if(!here(m)){location.href=pageOf(m)+'?memo#dm='+m.id; return}
+    var t=find(m); if(t){t.scrollIntoView({behavior:'smooth',block:'center'}); flash(t)}
+  }
 
   function render(){
     count.textContent=memos.length?String(memos.length):'';
@@ -60,8 +77,9 @@
     list.innerHTML='';
     memos.forEach(function(m,k){
       var li=el('li');
-      var go=el('button','dm-go',m.sec+' '+m.name+'「'+m.what+'」'); go.type='button';
-      go.addEventListener('click',function(){var t=find(m); if(t){t.scrollIntoView({behavior:'smooth',block:'center'}); flash(t)}});
+      var go=el('button','dm-go','〔'+(m.pname||'トップ')+'〕'+m.sec+' '+m.name+'「'+m.what+'」'); go.type='button';
+      if(!here(m)) go.title='このメモのページへ移ります';
+      go.addEventListener('click',function(){goTo(m)});
       var del=el('button','dm-del','消す'); del.type='button'; del.setAttribute('aria-label',(k+1)+'番目のメモを消す');
       del.addEventListener('click',function(){memos.splice(k,1); save(); unmarkAll(); markAll(); render()});
       li.appendChild(go); li.appendChild(el('span','dm-text',m.text+'（'+m.view+'）')); li.appendChild(del);
@@ -72,10 +90,10 @@
   function badges(show){
     document.querySelectorAll('dm-badge').forEach(function(b){b.remove()});
     if(!show) return;
-    document.querySelectorAll('[data-sec]').forEach(function(s){
+    secs().forEach(function(s,i){
       var b=document.createElement('dm-badge'); b.className='dm-ui';
-      b.appendChild(el('b','',s.getAttribute('data-sec')));
-      b.appendChild(el('span','',' '+s.getAttribute('data-sec-name')));
+      b.appendChild(el('b','',letter(i)));
+      b.appendChild(el('span','',' '+s.getAttribute('data-sec')));
       s.insertBefore(b,s.firstChild);
     });
   }
@@ -94,8 +112,8 @@
 
   function openSheet(t){
     var s=secOf(t);
-    pending={sec:s.id,name:s.name,what:what(t),path:pathOf(t)};
-    where.textContent=s.id+' '+s.name+'　「'+pending.what+'」';
+    pending={id:Date.now().toString(36),page:PAGE,pname:PNAME,sec:s.id,name:s.name,what:what(t),path:pathOf(t)};
+    where.textContent='〔'+PNAME+'〕'+s.id+' '+s.name+'　「'+pending.what+'」';
     ta.value=''; sheet.hidden=false; panel.hidden=true;
     if(hoverEl) hoverEl.classList.remove('dm-hover');
     hoverEl=t; t.classList.add('dm-hover');
@@ -112,10 +130,10 @@
     memos.push(pending); save(); markAll(); closeSheet(); render();
   }
   function memoText(){
-    var url=location.href.split('#')[0].split('?')[0];
+    var site=location.href.split('#')[0].split('?')[0].replace(/[^\/]*$/,'');
     var lines=['デザイン案 '+VER+' の気になる所（'+memos.length+'件）'];
-    memos.forEach(function(m,k){lines.push((k+1)+'. 【'+m.sec+' '+m.name+'】「'+m.what+'」 '+m.text+'（'+m.view+' '+m.w+'px）')});
-    lines.push('ページ：'+url);
+    memos.forEach(function(m,k){lines.push((k+1)+'. 〔'+(m.pname||'トップ')+'〕【'+m.sec+' '+m.name+'】「'+m.what+'」 '+m.text+'（'+m.view+' '+m.w+'px）')});
+    lines.push('サイト：'+site);
     return lines.join('\n');
   }
   function copy(){
@@ -138,12 +156,36 @@
     if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(s).then(ok,fallback); else fallback();
   }
 
+  // 下書きでは、まだ作っていないページや外のサイトへはつながない。押したら一言だけ出す
+  var TODO={
+    page:'このページは、まだ作っていません。',
+    article:'お知らせの記事は、見本を1本だけ作っています。一覧のいちばん上のお知らせから開けます。',
+    smoosy:'下書きなので、つないでいません。本番では、会員マイページ（SMOOSY）が開きます。',
+    youtube:'下書きなので、つないでいません。本番では、学会のYouTubeチャンネルが開きます。',
+    ext:'下書きなので、外のサイトにはつないでいません。',
+    form:'下書きなので、送れません。本番では、学会の事務局に届きます。'
+  };
+  var toastTimer=null;
+  function say(msg){
+    toast.textContent=msg; toast.hidden=false;
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){toast.hidden=true},3600);
+  }
+
   document.addEventListener('click',function(e){
     if(!on||bypass) return;
     var t=e.target; if(!(t instanceof Element)||t.closest('.dm-ui')) return;
     e.preventDefault(); e.stopPropagation();
     openSheet(t);
   },true);
+  document.addEventListener('click',function(e){
+    if(on) return;
+    var a=e.target instanceof Element&&e.target.closest('a[data-todo]'); if(!a) return;
+    e.preventDefault(); say(TODO[a.getAttribute('data-todo')]||TODO.page);
+  });
+  document.addEventListener('submit',function(e){
+    if(!e.target.matches('form[data-todo]')) return;
+    e.preventDefault(); say(TODO.form);
+  });
   document.addEventListener('mouseover',function(e){
     if(!on||!sheet.hidden) return;
     var t=e.target; if(!(t instanceof Element)||t.closest('.dm-ui')) return;
@@ -167,4 +209,9 @@
 
   markAll(); render();
   if(/[?&]memo\b/.test(location.search)) setOn(true);
+  var jump=/#dm=([0-9a-z]+)/.exec(location.hash);
+  if(jump){
+    var m=memos.filter(function(x){return x.id===jump[1]})[0];
+    if(m) setTimeout(function(){goTo(m)},300);
+  }
 })();
