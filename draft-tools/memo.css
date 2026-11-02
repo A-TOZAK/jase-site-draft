@@ -1,0 +1,49 @@
+/* 下書きのときだけ使う道具（デザイン案の帯と、気になる所メモ）。本番では draft-tools/ ごと外す */
+.dm-ui[hidden]{display:none!important}
+
+/* 一番上の帯 */
+.dm-bar{display:flex;align-items:center;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding:8px 20px;background:#26282e;color:#eceef2;font-size:13px;line-height:1.5}
+.dm-bar p{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0}
+.dm-bar b{background:#e6cf8f;color:#141b45;padding:1px 8px;border-radius:3px;font-size:12px}
+.dm-bar .dm-warn{color:#c9ccd4;word-break:auto-phrase}
+.dm-toggle{font:inherit;font-weight:700;background:#fff;color:#141b45;border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.dm-toggle[aria-pressed="true"]{background:#e6cf8f}
+.dm-count:not(:empty){margin-left:6px;display:inline-block;min-width:1.5em;text-align:center;background:#c0392b;color:#fff;border-radius:999px;padding:0 6px;font-size:12px}
+
+/* メモを書いている間：区画に記号を出す */
+body.dm-on [data-sec]:not(.hd){position:relative}
+body.dm-on [data-sec]{outline:2px dashed rgba(184,145,58,.95);outline-offset:-2px}
+body.dm-on main *,body.dm-on header *,body.dm-on footer *,body.dm-on .notice *{cursor:crosshair}
+dm-badge{position:absolute;left:6px;top:6px;z-index:30;background:#b8913a;color:#fff;font:700 12px/1.6 "Hiragino Sans","Noto Sans JP",sans-serif;padding:2px 8px;border-radius:3px;pointer-events:none;white-space:nowrap;letter-spacing:.02em}
+body.dm-on .dm-hover{outline:2px solid #c0392b!important;outline-offset:1px}
+body.dm-on .dm-marked{outline:3px solid #c0392b!important;outline-offset:2px}
+.dm-flash{outline:4px solid #e6cf8f!important;outline-offset:3px}
+
+/* メモの一覧と、書く欄 */
+.dm-panel,.dm-sheet{position:fixed;z-index:1000;background:#fff;color:#1b1e27;font-family:"Hiragino Sans","Noto Sans JP",sans-serif;font-size:14px;line-height:1.6;border-radius:10px;box-shadow:0 14px 44px rgba(0,0,0,.3)}
+.dm-panel{right:16px;bottom:16px;width:360px;max-width:calc(100vw - 32px);padding:14px 16px}
+.dm-sheet{left:50%;bottom:16px;transform:translateX(-50%);width:460px;max-width:calc(100vw - 32px);padding:16px}
+.dm-h{font-weight:700;font-size:15px;margin:0 0 4px}
+.dm-help{font-size:13px;color:#5f6574;margin:0}
+.dm-list{list-style:decimal;margin:6px 0 0;padding:0 0 0 1.5em;max-height:40vh;overflow:auto;font-size:13px}
+.dm-list li{padding:6px 0;border-bottom:1px solid #ececec}
+.dm-go{display:block;margin:0;padding:0;background:none;border:0;font:inherit;font-weight:700;color:#243071;text-align:left;text-decoration:underline;cursor:pointer;overflow-wrap:anywhere}
+.dm-text{display:block;overflow-wrap:anywhere}
+.dm-del{margin-top:4px;padding:1px 8px;font:inherit;font-size:12px;color:#5f6574;background:none;border:1px solid #c9ccd6;border-radius:4px;cursor:pointer}
+.dm-done{margin:6px 0 0;font-size:12.5px;color:#1e7a46}
+.dm-done:empty{display:none}
+.dm-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.dm-btns button{padding:8px 12px;font:inherit;font-size:13px;font-weight:700;color:#243071;background:#fff;border:1px solid #243071;border-radius:6px;cursor:pointer}
+.dm-btns .dm-copy,.dm-btns .dm-save{color:#fff;background:#243071}
+.dm-out{display:block;width:100%;box-sizing:border-box;margin-top:6px;padding:6px 8px;font:inherit;font-size:13px;border:1px solid #c9ccd6;border-radius:6px}
+.dm-where{margin:0 0 8px;font-weight:700;color:#243071;overflow-wrap:anywhere}
+.dm-sheet textarea{display:block;width:100%;box-sizing:border-box;padding:8px 10px;font:inherit;font-size:16px;border:1px solid #c9ccd6;border-radius:6px;resize:vertical}
+
+@media (max-width:600px){
+  .dm-bar{flex-wrap:nowrap;padding:8px 16px;font-size:12.5px}
+  .dm-bar .dm-date{display:none}
+  .dm-toggle{padding:6px 12px;font-size:12.5px}
+  dm-badge span{display:none}
+  .dm-panel,.dm-sheet{left:8px;right:8px;bottom:8px;width:auto;max-width:none;transform:none}
+  .dm-list{max-height:26vh}
+}
