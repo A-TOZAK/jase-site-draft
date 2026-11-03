@@ -84,7 +84,7 @@ img{max-width:100%;display:block}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.08fr;gap:56px;align-items:center}
 .eyebrow{font-family:var(--font-en);font-size:14px;letter-spacing:.2em;color:var(--gold);font-weight:600}
 .hero h1 .em{color:#9c7a2e}
-.hero h1{font-size:50px;line-height:1.25;letter-spacing:.04em;color:var(--navy-deep);margin:14px 0 10px;font-weight:800}
+.hero h1{font-size:62px;line-height:1.25;letter-spacing:.04em;color:var(--navy-deep);margin:14px 0 10px;font-weight:800}
 .hero .tag{font-size:19px;font-weight:700;color:var(--navy);letter-spacing:.03em;text-wrap:balance}
 .hero .rule{width:56px;height:2px;background:var(--gold);margin:26px 0 22px}
 .hero p.lead{font-size:16px;color:#363b48;word-break:auto-phrase;text-wrap:pretty}
@@ -295,7 +295,7 @@ img{max-width:100%;display:block}
   .brand b{font-size:15px;white-space:nowrap;letter-spacing:.02em}
   .btn{padding:8px 14px;font-size:13.5px}
   .hero{padding:36px 0 40px}
-  .hero h1{font-size:36px;margin:8px 0 6px}
+  .hero h1{font-size:44px;margin:8px 0 6px}
   .hero .rule{margin:16px 0 14px}
   .brand img{width:34px;height:34px}
   .hero .tag{font-size:16.5px}
