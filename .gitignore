@@ -1,2 +1,5 @@
 _shots/
 .DS_Store
+
+# YouTube の題名そのままの控え（人のお名前が入ることがある）。公開しない
+data/videos-feed.json

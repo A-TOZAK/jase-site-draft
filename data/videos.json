@@ -1,0 +1,21 @@
+{
+  "_説明": "学会のYouTubeチャンネルの動画を、サイトに出すときの題名と種類。新しい動画が出たら tools/videos.py が知らせるので、ここに1行足す。人のお名前は題名に入れない。",
+  "channel_id": "UCN0wAV8MST3usARh2XYaptg",
+  "channel_url": "https://www.youtube.com/@JASESocial",
+  "titles": {
+    "oIVFj2_jKL0": {"kind": "ウェビナー", "title": "第13回 JASE ウェビナー　認知負荷（Cognitive load）を理解し、外科教育をより効率的に"},
+    "J9IHadBF4EY": {"kind": "ウェビナー", "title": "第11回 JASE ウェビナー　外科医のパフォーマンス評価"},
+    "goj7BOPpmwk": {"kind": "ウェビナー", "title": "第10回 JASE ウェビナー　ど素人から始める効率的なデータ整理"},
+    "a9tuavB4N1Q": {"kind": "ウェビナー", "title": "第9回 JASE ウェビナー　論文の書き方の基本"},
+    "5xZz_yPeQmY": {"kind": "ウェビナー", "title": "第8回 JASE ウェビナー　外科教育研究とAI 入門編"},
+    "1BRq5YXJkgM": {"kind": "ウェビナー", "title": "第7回 JASE ウェビナー　シミュレーションをもっと導入しよう"},
+    "25TSPN6yhIo": {"kind": "ウェビナー", "title": "第6回 JASE ウェビナー　外部資金の獲得（科研費と助成金）"},
+    "to55B1EYanw": {"kind": "ウェビナー", "title": "第5回 JASE ウェビナー　アンケート調査の実際"},
+    "mnqHCkcp1KI": {"kind": "ウェビナー", "title": "第3回 JASE ウェビナー　忙しい外科医学教育者でもできる Systematic Review の基本"},
+    "x2GKo-2xG6g": {"kind": "学術集会", "title": "第10回 学術集会（2023年）　McGill 外科教育スカラーシップの紹介"},
+    "jmUtEkXcJUc": {"kind": "学術集会", "title": "第10回 学術集会（2023年）　Most Impressive賞　成長が遅い修練医に対する自発的な学習意欲を生み出す教育手法"},
+    "KR_vX59mxCw": {"kind": "学術集会", "title": "第10回 学術集会（2023年）　特別講演"},
+    "Wi55BTWmDCc": {"kind": "ウェビナー", "title": "第2回 JASE ウェビナー　Research Question と研究デザインの基本"},
+    "5asT8HWBDuc": {"kind": "ウェビナー", "title": "第1回 JASE ウェビナー　外科教育研究の基本"}
+  }
+}
