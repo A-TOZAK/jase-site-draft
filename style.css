@@ -84,10 +84,10 @@ img{max-width:100%;display:block}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.08fr;gap:56px;align-items:center}
 .eyebrow{font-family:var(--font-en);font-size:14px;letter-spacing:.2em;color:var(--gold);font-weight:600}
 .hero h1 .em{color:#9c7a2e}
-.hero h1{font-size:56px;line-height:1.25;letter-spacing:.04em;color:var(--navy-deep);margin:14px 0 10px;font-weight:800}
+.hero h1{font-size:50px;line-height:1.25;letter-spacing:.04em;color:var(--navy-deep);margin:14px 0 10px;font-weight:800}
 .hero .tag{font-size:19px;font-weight:700;color:var(--navy);letter-spacing:.03em;text-wrap:balance}
 .hero .rule{width:56px;height:2px;background:var(--gold);margin:26px 0 22px}
-.hero p.lead{font-size:16px;color:#363b48}
+.hero p.lead{font-size:16px;color:#363b48;word-break:auto-phrase;text-wrap:pretty}
 .hero .more{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
 /* 受賞演題 */
 .awards{list-style:none;border-top:1px solid var(--ink)}
