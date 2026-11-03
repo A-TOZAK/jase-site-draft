@@ -6,6 +6,12 @@
   mb.addEventListener('click',function(){var o=hd.classList.toggle('open');mb.setAttribute('aria-expanded',o?'true':'false');mb.setAttribute('aria-label',o?'メニューを閉じる':'メニューを開く')});
 })();
 
+// ロゴの帯が見えなくなったら、メニューの帯の左に小さな紋章を出す
+(function(){
+  var b=document.querySelector('.banner'), hd=document.querySelector('.hd'); if(!b||!hd||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(es){hd.classList.toggle('stuck',!es[0].isIntersecting)}).observe(b);
+})();
+
 // トップのカルーセル
 (function(){
   var car=document.querySelector('.car'); if(!car) return;

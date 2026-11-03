@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<!-- ロゴの帯の和文（明朝・仮置き）。使う字だけを読みこむ -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&text=%E4%B8%80%E8%88%AC%E7%A4%BE%E5%9B%A3%E6%B3%95%E4%BA%BA%E6%97%A5%E6%9C%AC%E5%A4%96%E7%A7%91%E6%95%99%E8%82%B2%E5%AD%A6%E4%BC%9A&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="draft-tools/memo.css">
 </head>
@@ -17,8 +19,8 @@
 <!-- 帯・お知らせの帯・ヘッダー・フッターは index.html から tools/parts.py で写す。ここでは直さない -->
 <!-- part:bar -->
 <!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
-<div class="dm-bar dm-ui" data-version="v2" data-date="2026-11-03">
-<p><b>デザイン案 v2</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<div class="dm-bar dm-ui" data-version="v3" data-date="2026-11-03">
+<p><b>デザイン案 v3</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
 <button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
 </div>
 <!-- /part:bar -->
@@ -28,12 +30,19 @@
 </div>
 <!-- /part:notice -->
 <!-- part:header -->
-<header class="hd" data-sec="ヘッダーとメニュー">
+<!-- ロゴの帯：今のサイトの帯にならい、両側に紋章、間に学会名。和文の書体は、正式なロゴができるまでの仮置き -->
+<div class="banner" data-sec="ロゴの帯">
 <div class="wrap">
-<a class="brand" href="index.html" aria-label="日本外科教育学会 トップへ">
+<a class="lockup" href="index.html" aria-label="日本外科教育学会 トップへ">
 <img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
-<div><b>日本外科教育学会</b><span>Japanese Association for Surgical Education</span></div>
+<span class="name"><b>日本外科教育学会</b><span>Japanese Association for Surgical Education</span></span>
+<img src="img/jase_seal.png" alt="">
 </a>
+</div>
+</div>
+<header class="hd" data-sec="メニュー">
+<div class="wrap">
+<a class="mini" href="index.html" aria-label="日本外科教育学会 トップへ" tabindex="-1"><img src="img/jase_seal.png" alt=""></a>
 <nav class="gnav" aria-label="メインメニュー">
 <a href="summit.html"><b>Summit</b><span>学術集会</span></a>
 <a href="workshops.html"><b>Workshops</b><span>講習会</span></a>

@@ -5,7 +5,7 @@
 日本外科教育学会（JASE）のホームページのデザイン案です。公式サイトではありません。学会の方の気になる所を受けて、版を重ねて仕上げていきます。
 
 - 公開先：https://a-tozak.github.io/jase-site-draft/ （GitHub Pages。main に push すると1〜2分で反映）
-- ページは10枚です。トップ（index.html）、学術集会（summit.html）、講習会（workshops.html）、留学奨学金（scholarship.html）、教材と動画（library.html）、お知らせ（news.html）、お知らせの記事の見本（news-article.html）、学会について（about.html）、入会のご案内（join.html）、お問い合わせ（contact.html）。
+- ページは10枚です。トップ（index.html）、学術集会（summit.html）、講習会（workshops.html）、留学奨学金（scholarship.html）、教材と動画（library.html）、お知らせ（news.html）、お知らせの記事の見本（news-article.html）、学会について（about.html）、入会のご案内（join.html）、お問い合わせ（contact.html）。ほかに、下書きだけのページとして、最初の画面の言葉の案を比べるページ（copy-ideas.html）があります。言葉が決まったらトップに入れ、このページは外します。
 - 見た目は style.css の1枚、動きは site.js の1本にまとめています。
 
 ## 守ること
@@ -55,14 +55,15 @@ python3 tools/parts.py --check  # 写し忘れがないか確かめるだけ
 ## デザインの決まり
 
 - 色は style.css の `:root` の変数だけを使う。紺 `--navy` #243071、深い紺 `--navy-deep` #141b45、金 `--gold` #b8913a、紙 `--paper` #faf8f3。新しい色を足すときは、先に相談する。
-- 書体は、和文がヒラギノ角ゴ（`--font-ja`）、英字が Cormorant Garamond（`--font-en`）。英字の数字は `font-variant-numeric:lining-nums`。
+- 書体は、和文がヒラギノ角ゴ（`--font-ja`）、英字が Cormorant Garamond（`--font-en`）。ロゴの帯の学会名だけは明朝（`--font-mincho`、Noto Serif JP を使う字だけ読みこむ）で、正式なロゴができるまでの仮置き。英字の数字は `font-variant-numeric:lining-nums`。
 - 見出し、キャッチ、カードの文は `word-break:auto-phrase` で文節で折る。`keep-all` は使わない。日付と金額は `<span class="nw">` で途中で折らない。
 - メニューと各ページの大見出しは、英語を大きく、日本語を小さく添える。
 - 1つの画面に置くまとまりは4つまで。
 - 下層ページの頭は、パンくず、英語の大見出しと日本語の題、1〜2文の説明、ページの中へ飛ぶ丸いリンク、の順にそろえる（`.ph`）。
 - 外部のライブラリを足さない。カルーセルも自作の軽いものを使う。
 - 動きは `prefers-reduced-motion` を守る。カルーセルには一時停止のボタンを残す。
-- 入会と会員マイページ（会費・参加費の支払い）は、右上にいつも見える場所に置く。学術集会と講習会の申込の近くにも、入会への一言を置く（`.join-note`）。
+- ヘッダーは2段。上がロゴの帯（`.banner`。両側に紋章、間に学会名）、下がメニューの帯（`.hd`。ここだけ画面の上に残る）。
+- 入会と会員マイページ（会費・参加費の支払い）は、メニューの帯の右にいつも見える場所に置く。学術集会と講習会の申込の近くにも、入会への一言を置く（`.join-note`）。
 
 ## 確かめ方（直したら毎回）
 
