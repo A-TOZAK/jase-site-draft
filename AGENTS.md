@@ -66,7 +66,7 @@ python3 tools/videos.py   # フィードを読み、data/videos.json の題名�
 ## デザインの決まり
 
 - 色は style.css の `:root` の変数だけを使う。紺 `--navy` #243071、深い紺 `--navy-deep` #141b45、金 `--gold` #b8913a、紙 `--paper` #faf8f3。新しい色を足すときは、先に相談する。
-- 書体は、和文がヒラギノ角ゴ（`--font-ja`）、英字が Cormorant Garamond（`--font-en`）。ロゴの帯の学会名だけは明朝（`--font-mincho`、Noto Serif JP を使う字だけ読みこむ）で、正式なロゴができるまでの仮置き。英字の数字は `font-variant-numeric:lining-nums`。
+- 書体は、和文がヒラギノ角ゴ（`--font-ja`）、英字が Cormorant Garamond（`--font-en`）。ロゴの帯の学会名は画像（img/jase_wordmark.svg）。届いたロゴの字形で「研究会」を「学会」に組みかえた仮置きで、正式な和文のロゴができたら差しかえる。フッターの学会名だけは明朝（`--font-mincho`、Noto Serif JP を使う字だけ読みこむ）。英字の数字は `font-variant-numeric:lining-nums`。
 - 見出し、キャッチ、カードの文は `word-break:auto-phrase` で文節で折る。`keep-all` は使わない。日付と金額は `<span class="nw">` で途中で折らない。
 - メニューと各ページの大見出しは、英語を大きく、日本語を小さく添える。
 - 1つの画面に置くまとまりは4つまで。
