@@ -820,3 +820,45 @@ a.card .go::after{content:" →"}
   .car.side .slide.s3{aspect-ratio:4/4.6}
   .car.side .s3 .bg{height:46%}
 }
+
+/* ===== v6（2026-11-07）。本当のリンクと、残っていた崩れの直し ===== */
+/* 最初の画面：カルーセルと写真の一言を右の列にまとめる */
+.hero-side{display:grid;gap:12px;align-self:center}
+.hero-side .photo-note{grid-column:auto;margin-top:0}
+/* 今の学会サイトへ出るお知らせは、右の印を ↗ にする */
+.news-list a.out::after{content:"↗";color:var(--gold);font-weight:700}
+/* 押せないボタン（準備中） */
+.btn.off{background:var(--line);color:var(--sub);cursor:default}
+/* 頭の右の札の中のリンク */
+.ph-card dd a{text-decoration:underline;text-underline-offset:3px}
+.ph-card dd{word-break:auto-phrase}
+/* 頭の高さを、どのページでもそろえる */
+.ph-body.has-side{align-items:start}
+.ph-body.has-side .ph-main{padding-top:8px}
+/* 記事の下：一覧へのリンクを真ん中に */
+.pager-row .mid{text-align:center}
+/* 組織図：横線を、両端の箱の真ん中から真ん中までにする（箱の間の14pxを数に入れる） */
+.org .row::before{left:calc((100% - (var(--n,3) - 1) * 14px) / var(--n,3) / 2);right:calc((100% - (var(--n,3) - 1) * 14px) / var(--n,3) / 2);height:2px}
+.org .ln,.org .row .box::before{width:2px}
+.org .row .box::before{left:calc(50% - 1px)}
+/* いまのフォームへの案内 */
+.now-form{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;max-width:760px;background:var(--navy-soft);border:1px solid #cfd3e6;border-radius:8px;padding:18px 22px;margin-bottom:28px}
+.now-form > div{flex:1 1 380px}
+.now-form b{display:block;color:var(--navy-deep);font-size:16px;line-height:1.5}
+.now-form p{font-size:14.5px;color:#4a4f5c;word-break:auto-phrase}
+.mail a{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:600px){
+  /* 表の2行目を、ラベルの下でなく字下げした位置から始める */
+  .tbl tbody td[data-label]{display:grid;grid-template-columns:auto 1fr;column-gap:10px}
+  .tbl tbody td[data-label]::before{margin-right:0}
+  .ph-body.has-side .ph-main{padding-top:0}
+}
+/* v6 の再点検の直し */
+.course{grid-template-columns:minmax(220px,1fr) 3fr 150px}
+.ph-card .go[target]::after{content:" ↗"}
+.doclinks a[target]::after{content:"↗"}
+#form .dm-note{max-width:760px}
+.now-form b{word-break:auto-phrase}
+@media (max-width:600px){
+  .tbl tbody td[data-label] > .tbd{justify-self:start}
+}

@@ -32,7 +32,8 @@ python3 tools/parts.py --check  # 写し忘れがないか確かめるだけ
 ## リンクの決まり
 
 - サイトの中のリンクは、`summit.html` のように同じ階層のファイル名で書く。
-- まだ作っていないページと外のサイトは、`href="#"` に `data-todo` を付ける。押すと一言だけ出る（draft-tools/memo.js）。`page`（まだ作っていないページ）、`article`（記事の見本がない）、`smoosy`（会員の仕組み）、`youtube`、`ext`（そのほかの外のサイト）、`form`（フォーム）の6つ。
+- v6 から、行き先があるものは本当のURLにつなぐ。今の学会サイト（https://surgicaleducation.jp/）、会員マイページと入会（surgicaleducation.smoosy.atlas.jp）、講習会の申込（event.atlas.jp/ja/surgicaleducation/S0010〜S0013）。外へ出るリンクには `target="_blank" rel="noopener"` を付ける。お知らせの一覧で外へ出る行は `class="out"`（右の印が ↗ になる）。講習会の受付の様子と参加費は、申込のページで確かめてから書き、確かめた日を添える。
+- 行き先がまだないページだけ、`href="#"` に `data-todo` を付ける。押すと一言だけ出る（draft-tools/memo.js）。`page`（まだ作っていないページ）、`article`（記事の見本がない）、`smoosy`（会員の仕組み）、`youtube`、`ext`（そのほかの外のサイト）、`form`（フォーム）の6つ。
 - 本番では、`data-todo` のリンクに本当の行き先を入れる。
 
 ## 動画の足し方
