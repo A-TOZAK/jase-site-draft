@@ -65,7 +65,7 @@ python3 tools/videos.py   # フィードを読み、data/videos.json の題名�
 
 ## デザインの決まり
 
-- 色は style.css の `:root` の変数だけを使う。紺 `--navy` #243071、深い紺 `--navy-deep` #141b45、金 `--gold` #b8913a、紙 `--paper` #faf8f3。講習会の色分けにだけ、金の深い色 `--gold-deep` と、ロゴの外輪の赤 `--crimson` を使う（紺＝外科指導医、金＝リーダー、赤＝研修医）。新しい色を足すときは、先に相談する。
+- 色は style.css の `:root` の変数だけを使う。紺 `--navy` #243071、深い紺 `--navy-deep` #141b45、金 `--gold` #b8913a、紙 `--paper` #faf8f3。講習会の色分けにだけ、金の深い色 `--gold-deep` と、ロゴの外輪の赤 `--crimson` を使う（外科指導医は紺、リーダーは金、研修医は赤）。新しい色を足すときは、先に相談する。
 - 書体は、和文がヒラギノ角ゴ（`--font-ja`）、英字が Cormorant Garamond（`--font-en`）。ロゴの帯の紋章と学会名は、2026年11月7日に届いた正式なロゴ（JASE_logo3_B。紋章の中が白い方）から切り出した画像（img/jase_seal.png、img/jase_wordmark.png、透かしの img/jase_mark.png）。フッターの学会名だけは明朝（`--font-mincho`、Noto Serif JP を使う字だけ読みこむ）。英字の数字は `font-variant-numeric:lining-nums`。
 - 見出し、キャッチ、カードの文は `word-break:auto-phrase` で文節で折る。`keep-all` は使わない。日付と金額は `<span class="nw">` で途中で折らない。
 - メニューと各ページの大見出しは、英語を大きく、日本語を小さく添える。
