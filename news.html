@@ -19,8 +19,8 @@
 <!-- 帯・お知らせの帯・ヘッダー・フッターは index.html から tools/parts.py で写す。ここでは直さない -->
 <!-- part:bar -->
 <!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
-<div class="dm-bar dm-ui" data-version="v4" data-date="2026-11-03">
-<p><b>デザイン案 v4</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<div class="dm-bar dm-ui" data-version="v5" data-date="2026-11-07">
+<p><b>デザイン案 v5</b><span class="dm-date">2026年11月7日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
 <button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
 </div>
 <!-- /part:bar -->
@@ -30,12 +30,12 @@
 </div>
 <!-- /part:notice -->
 <!-- part:header -->
-<!-- ロゴの帯：今のサイトの帯にならい、両側に紋章、間に学会名。学会名は届いたロゴの字形で「学会」に組みかえた仮置き。正式な和文のロゴができたら img/jase_wordmark.svg を差しかえる -->
+<!-- ロゴの帯：両側に紋章（白い方のB）、間に学会名。どちらも2026年11月7日に届いた正式なロゴ（JASE_logo3_B）から切り出した画像 -->
 <div class="banner" data-sec="ロゴの帯">
 <div class="wrap">
 <a class="lockup" href="index.html" aria-label="日本外科教育学会 トップへ">
 <img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
-<img class="wordmark" src="img/jase_wordmark.svg" alt="" width="299" height="43">
+<img class="wordmark" src="img/jase_wordmark.png" alt="" width="389" height="56">
 <img src="img/jase_seal.png" alt="">
 </a>
 </div>
@@ -65,12 +65,36 @@
 <section class="ph" data-sec="ページの見出し">
 <div class="wrap">
 <nav class="crumb" aria-label="現在地"><a href="index.html">トップ</a><i>›</i><span>お知らせ</span></nav>
-<div class="ph-body">
-<div>
+<div class="ph-body has-side">
+<div class="ph-main">
 <p class="ph-en">News</p>
 <h1>お知らせ<small>News from JASE</small></h1>
-</div>
 <p class="ph-lead phrase">学会からのお知らせの一覧です。ラベルと年で、しぼりこめます。</p>
+</div>
+<div class="car side" aria-roledescription="carousel" aria-label="新しいお知らせ">
+<div class="track">
+<article class="slide s-news n1" aria-roledescription="slide" aria-label="1枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">NEW<span class="nd">2026.10.03</span><span class="nl">募集</span></p>
+<p class="ja">外科指導医のためのワークショップ（2027年2月）の申込を始めました</p>
+<a class="go" href="news-article.html">記事を読む</a>
+</article>
+<article class="slide s-news n2" aria-roledescription="slide" aria-label="2枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">NEW<span class="nd">2026.09.24</span><span class="nl">募集</span></p>
+<p class="ja">リーダー外科医のためのワークショップ（Surgeons as Leaders）のご案内</p>
+<a class="go" href="#" data-todo="article">記事を読む</a>
+</article>
+<article class="slide s-news n3" aria-roledescription="slide" aria-label="3枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">NEW<span class="nd">2026.06.02</span><span class="nl">募集</span></p>
+<p class="ja">外科指導医のためのワークショップ Course II（2026年秋）のご案内</p>
+<a class="go" href="#" data-todo="article">記事を読む</a>
+</article>
+</div>
+<div class="dots" role="tablist"><button aria-label="1枚目" aria-current="true"></button><button aria-label="2枚目"></button><button aria-label="3枚目"></button></div>
+<div class="car-ui"><button class="prev" aria-label="前へ">‹</button><button class="pause" aria-label="自動の切りかえを止める">Ⅱ</button><button class="next" aria-label="次へ">›</button></div>
+</div>
 </div>
 </div>
 </section>

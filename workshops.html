@@ -19,8 +19,8 @@
 <!-- 帯・お知らせの帯・ヘッダー・フッターは index.html から tools/parts.py で写す。ここでは直さない -->
 <!-- part:bar -->
 <!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
-<div class="dm-bar dm-ui" data-version="v4" data-date="2026-11-03">
-<p><b>デザイン案 v4</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<div class="dm-bar dm-ui" data-version="v5" data-date="2026-11-07">
+<p><b>デザイン案 v5</b><span class="dm-date">2026年11月7日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
 <button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
 </div>
 <!-- /part:bar -->
@@ -30,12 +30,12 @@
 </div>
 <!-- /part:notice -->
 <!-- part:header -->
-<!-- ロゴの帯：今のサイトの帯にならい、両側に紋章、間に学会名。学会名は届いたロゴの字形で「学会」に組みかえた仮置き。正式な和文のロゴができたら img/jase_wordmark.svg を差しかえる -->
+<!-- ロゴの帯：両側に紋章（白い方のB）、間に学会名。どちらも2026年11月7日に届いた正式なロゴ（JASE_logo3_B）から切り出した画像 -->
 <div class="banner" data-sec="ロゴの帯">
 <div class="wrap">
 <a class="lockup" href="index.html" aria-label="日本外科教育学会 トップへ">
 <img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
-<img class="wordmark" src="img/jase_wordmark.svg" alt="" width="299" height="43">
+<img class="wordmark" src="img/jase_wordmark.png" alt="" width="389" height="56">
 <img src="img/jase_seal.png" alt="">
 </a>
 </div>
@@ -65,23 +65,59 @@
 <section class="ph" data-sec="ページの見出し">
 <div class="wrap">
 <nav class="crumb" aria-label="現在地"><a href="index.html">トップ</a><i>›</i><span>講習会</span></nav>
-<div class="ph-body">
-<div>
+<div class="ph-body has-side">
+<div class="ph-main">
 <p class="ph-en">Workshops</p>
 <h1>講習会<small>Surgeons as Educators / Surgeons as Leaders</small></h1>
-</div>
 <p class="ph-lead phrase">外科医が「教える人」として学ぶための講習会です。アメリカの外科指導医向けの講座 Surgeons as Educators をもとに、外科教育の基本を4日間・25項目で学べるように作りました。2019年から開いています。</p>
 </div>
-<nav class="toc" aria-label="このページの中"><a href="#courses">講習会の一覧</a><a href="#learn">何を学ぶか</a><a href="#resident">研修医のためのワークショップ</a><a href="#voices">講師と受講した人の声</a></nav>
+<aside class="ph-side ph-card" aria-label="次の講習会のあらまし">
+<p class="kind">NEXT WORKSHOP<span class="st open">受付中</span></p>
+<p class="big">Surgeons as Educators</p>
+<p class="ja">外科指導医のためのワークショップ Course I</p>
+<dl><dt>日程</dt><dd><span class="nw">2027年2月20日（土）</span>・<span class="nw">21日（日）</span></dd><dt>会場</dt><dd>聖路加国際大学</dd></dl>
+<a class="go" href="#courses">講習会の一覧へ</a>
+</aside>
+</div>
+<nav class="toc" aria-label="このページの中"><a href="#courses">講習会の一覧</a><a href="#learn">何を学ぶか</a><a href="#voices">講師と受講した人の声</a></nav>
 </div>
 </section>
 
 <section class="sec" id="courses" data-sec="講習会の一覧">
 <div class="wrap">
+<div class="sec-top">
+<div>
 <div class="sec-hd"><div><span class="en">Courses</span><h2>講習会の一覧</h2></div></div>
-<p class="sec-lead phrase">どれを受ければよいかは、各コースの「学ぶこと」を見て選べます。外科指導医のためのワークショップの対象は、外科教育に興味のある医師と、外科教育にかかわる方です。これまでに講習会を受けていなくても申し込めます。</p>
+<p class="sec-lead phrase">講習会は、外科指導医のため、リーダー外科医のため、研修医のための3つに分かれます。どれを受ければよいかは、下の「何を学ぶか」で各コースの中身を見て選べます。外科指導医のためのワークショップの対象は、外科教育に興味のある医師と、外科教育にかかわる方です。これまでに講習会を受けていなくても申し込めます。</p>
+</div>
+<div class="car side" aria-roledescription="carousel" aria-label="講習会の様子">
+<div class="track">
+<article class="slide ph-photo" aria-roledescription="slide" aria-label="1枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">WORKSHOP</p>
+<p class="ja">講習会の様子の写真（1）</p>
+<p class="meta">写真は、学会から使ってよいと言われたものを入れます</p>
+</article>
+<article class="slide ph-photo" aria-roledescription="slide" aria-label="2枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">WORKSHOP</p>
+<p class="ja">講習会の様子の写真（2）</p>
+<p class="meta">写真は、学会から使ってよいと言われたものを入れます</p>
+</article>
+<article class="slide ph-photo" aria-roledescription="slide" aria-label="3枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">WORKSHOP</p>
+<p class="ja">講習会の様子の写真（3）</p>
+<p class="meta">写真は、学会から使ってよいと言われたものを入れます</p>
+</article>
+</div>
+<div class="dots" role="tablist"><button aria-label="1枚目" aria-current="true"></button><button aria-label="2枚目"></button><button aria-label="3枚目"></button></div>
+<div class="car-ui"><button class="prev" aria-label="前へ">‹</button><button class="pause" aria-label="自動の切りかえを止める">Ⅱ</button><button class="next" aria-label="次へ">›</button></div>
+</div>
+</div>
 <div class="courses">
-<article class="course">
+<p class="c-group edu"><b>Surgeons as Educators</b><span>外科指導医のためのワークショップ</span></p>
+<article class="course edu" id="sae1">
 <div class="c-name"><span class="en">Surgeons as Educators <em>Course I</em></span><span class="ja">外科指導医のための<span class="nw">ワークショップ（前半）</span></span></div>
 <dl class="c-meta">
 <div><dt>学ぶこと</dt><dd>教育プログラムの作り方と、運営のしかた</dd></div>
@@ -91,7 +127,7 @@
 </dl>
 <div class="c-act"><span class="st open">受付中</span><a class="btn navy ext" href="#" data-todo="smoosy">申し込む</a></div>
 </article>
-<article class="course">
+<article class="course edu" id="sae2">
 <div class="c-name"><span class="en">Surgeons as Educators <em>Course II</em></span><span class="ja">外科指導医のための<span class="nw">ワークショップ（後半）</span></span></div>
 <dl class="c-meta">
 <div><dt>学ぶこと</dt><dd>評価のしかたと、評価を生かした指導</dd></div>
@@ -101,17 +137,18 @@
 </dl>
 <div class="c-act"><span class="st open">受付中</span><a class="btn navy ext" href="#" data-todo="smoosy">申し込む</a></div>
 </article>
-<article class="course">
+<article class="course edu" id="sae12">
 <div class="c-name"><span class="en">Surgeons as Educators <em>Course I + II</em></span><span class="ja">前半と後半を続けて受けるコース</span></div>
 <dl class="c-meta">
-<div><dt>学ぶこと</dt><dd>前半と後半の全25項目</dd></div>
+<div><dt>学ぶこと</dt><dd>前半と後半の<span class="nw">全25項目</span></dd></div>
 <div><dt>日数</dt><dd>4日間</dd></div>
 <div class="wide"><dt>次の日程</dt><dd><span class="nw">2027年2月20日（土）</span>〜<span class="nw">23日（火）</span><br>聖路加国際大学</dd></div>
 <div><dt>参加費</dt><dd><span class="tbd">確認中</span></dd></div>
 </dl>
 <div class="c-act"><span class="st open">受付中</span><a class="btn navy ext" href="#" data-todo="smoosy">申し込む</a></div>
 </article>
-<article class="course">
+<p class="c-group ldr"><b>Surgeons as Leaders</b><span>リーダー外科医のためのワークショップ</span></p>
+<article class="course ldr" id="leaders">
 <div class="c-name"><span class="en">Surgeons as <em>Leaders</em></span><span class="ja">リーダー外科医のためのワークショップ</span><span class="c-who">対象：教授、診療科長、部長、医長などの立場を担う、または担って間もない外科系の医師</span></div>
 <dl class="c-meta">
 <div><dt>学ぶこと</dt><dd>リーダーシップと、チームや組織の運営</dd></div>
@@ -121,7 +158,8 @@
 </dl>
 <div class="c-act"><span class="st open">受付中</span><a class="btn navy ext" href="#" data-todo="smoosy">申し込む</a></div>
 </article>
-<article class="course soon" id="resident">
+<p class="c-group res"><b>Workshop for Residents</b><span>研修医のためのワークショップ</span></p>
+<article class="course res soon" id="resident">
 <div class="c-name"><span class="en">Workshop for <em>Residents</em></span><span class="ja">研修医のためのワークショップ</span><span class="c-who">対象：研修医（どこまでを含むかは確認中）</span></div>
 <dl class="c-meta">
 <div><dt>学ぶこと</dt><dd>—</dd></div>
@@ -144,11 +182,20 @@
 <div class="wrap">
 <div class="sec-hd"><div><span class="en">What You Learn</span><h2>何を学ぶか</h2></div></div>
 <p class="sec-lead phrase">成人教育の理論に基づいて、外科の臨床教育の基本を順に学びます。参加型の形で進み、質問や議論に加わりながら、明日から使える教え方を身につけます。</p>
+<p class="h3">コースごとの中身</p>
+<div class="c-guide">
+<a class="g edu" href="#sae1"><span class="g-en">Surgeons as Educators <em>Course I</em></span><b class="phrase">教育プログラムの作り方と、運営のしかた</b><span class="g-who">2日間　外科教育に興味のある医師と、外科教育にかかわる方</span><span class="go">日程と申込へ</span></a>
+<a class="g edu" href="#sae2"><span class="g-en">Surgeons as Educators <em>Course II</em></span><b class="phrase">評価のしかたと、評価を生かした指導</b><span class="g-who">2日間　Course I と続けて受けると、全25項目を学べます</span><span class="go">日程と申込へ</span></a>
+<a class="g ldr" href="#leaders"><span class="g-en">Surgeons as <em>Leaders</em></span><b class="phrase">リーダーシップと、チームや組織の運営</b><span class="g-who">2日間　教授、診療科長、部長、医長などの立場を担う外科系の医師</span><span class="go">日程と申込へ</span></a>
+<a class="g res" href="#resident"><span class="g-en">Workshop for <em>Residents</em></span><b class="phrase">研修医のための講習会</b><span class="g-who"><span class="nw">2026年度</span>から始めます。中身は、決まりしだいお知らせします</span><span class="go">準備の様子へ</span></a>
+</div>
+<p class="h3" style="margin-top:40px">Surgeons as Educators で学ぶ、おもな項目</p>
 <div class="cards3">
 <div class="card"><span class="num">01</span><p class="h3 phrase">大人の学び方と、教育の組み立て</p><ul class="tags"><li>アダルトラーニング</li><li>ニーズ分析</li><li>ゴールと到達目標</li><li>カリキュラム作成</li></ul></div>
 <div class="card"><span class="num">02</span><p class="h3 phrase">現場で教える技</p><ul class="tags"><li>講義とプレゼンテーション</li><li>フィードバック</li><li>マイクロスキル</li><li>手術室での教育</li></ul></div>
 <div class="card"><span class="num">03</span><p class="h3 phrase">評価と、人を導く力</p><ul class="tags"><li>評価のしかた</li><li>リーダーシップ</li><li>文化を変える</li><li>タイムマネジメント</li></ul></div>
 </div>
+<p class="dm-note dm-ui">どの項目が Course I と Course II のどちらに入るかは、学会に確かめてから分けて載せます。各コースの概要の資料（PDF など）があれば、上のカードから開けるようにします。</p>
 </div>
 </section>
 

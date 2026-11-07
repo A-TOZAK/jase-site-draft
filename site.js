@@ -12,29 +12,27 @@
   new IntersectionObserver(function(es){hd.classList.toggle('stuck',!es[0].isIntersecting)}).observe(b);
 })();
 
-// トップのカルーセル
-(function(){
-  var car=document.querySelector('.car'); if(!car) return;
+// カルーセル（トップの大きなものと、下層ページの頭の右の小さなもの）。どれも同じ動き
+document.querySelectorAll('.car').forEach(function(car){
   var track=car.querySelector('.track'), slides=car.querySelectorAll('.slide'), dots=car.querySelectorAll('.dots button');
-  var i=0, timer=null, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i=0, timer=null, paused=false, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function go(n){
     i=(n+slides.length)%slides.length;
     track.style.transform='translateX('+(-100*i)+'%)';
     dots.forEach(function(d,k){d.setAttribute('aria-current',k===i?'true':'false')});
     slides.forEach(function(s,k){s.setAttribute('aria-hidden',k===i?'false':'true')});
   }
-  function start(){ if(!reduce){ stop(); timer=setInterval(function(){go(i+1)},6000);} }
   function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  function start(){ if(!reduce&&!paused&&slides.length>1){ stop(); timer=setInterval(function(){go(i+1)},car.classList.contains('side')?5000:6000);} }
   car.querySelector('.next').addEventListener('click',function(){go(i+1);start()});
   car.querySelector('.prev').addEventListener('click',function(){go(i-1);start()});
   dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);start()})});
-  var pb=car.querySelector('.pause'), paused=false;
+  var pb=car.querySelector('.pause');
   pb.addEventListener('click',function(){paused=!paused; if(paused){stop();pb.textContent='▶';pb.setAttribute('aria-label','自動の切りかえを再開する')}else{start();pb.textContent='Ⅱ';pb.setAttribute('aria-label','自動の切りかえを止める')}});
-  var _start=start; start=function(){ if(!paused) _start(); };
   car.addEventListener('mouseenter',stop); car.addEventListener('mouseleave',start);
   car.addEventListener('focusin',stop); car.addEventListener('focusout',start);
   go(0); start();
-})();
+});
 
 // お知らせの一覧を、ラベルと年でしぼる
 (function(){

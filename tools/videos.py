@@ -5,7 +5,8 @@ YouTube の公開フィード（新しい15本）を読み、data/videos.json �
   （人のお名前が題名に入っていたら、data/videos.json に題名を足して、もう一度動かす）
 書きかえる所は、ページの中の次の印ではさんだ所だけ。
   index.html   … <!-- videos:slide --> カルーセルの3枚目、<!-- videos:top --> 動画と対談の3本
-  library.html … <!-- videos:library --> ウェビナーと学術集会の講演の一覧
+  library.html … <!-- videos:side --> ページの頭の右の、新しい3本のスライド
+                 <!-- videos:library --> ウェビナーと学術集会の講演の一覧
 使い方：python3 tools/videos.py
 """
 import html
@@ -19,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "videos.json"
 CACHE = ROOT / "data" / "videos-feed.json"
+CUR = ' aria-current="true"'
 NS = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
 
 
@@ -77,6 +79,22 @@ def main():
              f'</article>')
     put(ROOT / "index.html", "slide", slide)
     put(ROOT / "index.html", "top", "\n".join(card(v) for v in videos[:3]))
+
+    side = []
+    for k, v in enumerate(videos[:3]):
+        side.append(f'<article class="slide s3" aria-roledescription="slide" aria-label="{k+1}枚目（全3枚）">\n'
+                    f'<div class="bg"><img src="https://i.ytimg.com/vi/{v["id"]}/hqdefault.jpg" alt=""></div>\n'
+                    f'<p class="kind">NEW VIDEO　{e(v["kind"])}</p>\n'
+                    f'<p class="ja v-title">{e(v["title"])}</p>\n'
+                    f'<p class="meta">{v["date"].replace("-", ".")}</p>\n'
+                    f'<a class="go" href="https://www.youtube.com/watch?v={v["id"]}" target="_blank" rel="noopener">YouTubeで見る</a>\n'
+                    f'</article>')
+    ui = ('<div class="dots" role="tablist">' + "".join(
+        f'<button aria-label="{k+1}枚目"{CUR if k == 0 else ""}></button>' for k in range(len(side))) + '</div>\n'
+          '<div class="car-ui"><button class="prev" aria-label="前へ">‹</button><button class="pause" aria-label="自動の切りかえを止める">Ⅱ</button><button class="next" aria-label="次へ">›</button></div>')
+    put(ROOT / "library.html", "side",
+        '<div class="car side" aria-roledescription="carousel" aria-label="新しい動画">\n<div class="track">\n'
+        + "\n".join(side) + '\n</div>\n' + ui + '\n</div>')
 
     groups = []
     for kind, label in (("ウェビナー", "JASE ウェビナー"), ("学術集会", "学術集会の講演"), ("動画", "そのほかの動画")):

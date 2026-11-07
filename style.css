@@ -653,3 +653,170 @@ a.card .go::after{content:" →"}
   .car .track{transition:none}
   html{scroll-behavior:auto}
 }
+
+/* ===== v5（2026-11-07）。頭の右の一枚、講習会の色分け、創設者、論文 ===== */
+:root{--crimson:#a31a24;--gold-deep:#6b5219}
+/* 下層ページの頭：左に題と説明、右に一枚（次の回の札、写真、新しい動画やお知らせのスライド） */
+.ph-body{grid-template-columns:1fr;align-items:center}
+.ph-body.has-side{grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:28px 56px}
+.ph-main .ph-lead{margin-top:22px;max-width:34em}
+/* 紺の札 */
+.ph-card{position:relative;overflow:hidden;color:#fff;border-radius:10px;padding:28px 30px 26px;background:linear-gradient(135deg,#1c2560 0%,#2c3a82 60%,#3c4c97 100%);box-shadow:0 24px 48px -28px rgba(20,27,69,.55)}
+.ph-card::after{content:"";position:absolute;right:-46px;top:-36px;width:230px;height:230px;background:url(img/jase_mark.png) center/contain no-repeat;opacity:.12;pointer-events:none}
+.ph-card>*{position:relative;z-index:1}
+.ph-card .kind{display:flex;gap:10px;align-items:center;font-size:12.5px;letter-spacing:.14em;color:var(--gold-light);font-weight:700}
+.ph-card .kind .st{letter-spacing:.06em}
+.ph-card .big{font-family:var(--font-en);font-size:40px;line-height:1.1;font-weight:600;margin:10px 0 4px;font-variant-numeric:lining-nums}
+.ph-card .ja{font-size:16.5px;font-weight:700;line-height:1.6;word-break:auto-phrase}
+.ph-card dl{display:grid;grid-template-columns:4.5em 1fr;margin-top:14px;border-top:1px solid rgba(255,255,255,.22);font-size:14px}
+.ph-card dt,.ph-card dd{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.ph-card dt{color:var(--gold-light);font-weight:700;font-size:13px}
+.ph-card .meta{font-size:14px;opacity:.88;margin-top:6px;word-break:auto-phrase}
+.ph-card .go{display:inline-block;margin-top:16px;font-size:13.5px;font-weight:700;border-bottom:1px solid var(--gold-light);padding-bottom:2px}
+.ph-card .go::after{content:" →"}
+/* 右のスライド（トップのカルーセルと同じ部品を小さくしたもの） */
+.car.side .slide{aspect-ratio:16/10.5;padding:26px 28px}
+.car.side .dots{left:28px;top:22px}
+.car.side .car-ui{top:12px;right:14px}
+.car.side .car-ui button{width:30px;height:30px;font-size:13px}
+.car.side .slide .ja{font-size:16px;line-height:1.6;word-break:auto-phrase}
+.car.side .slide .v-title{font-size:16.5px}
+.car.side .slide .meta{font-size:13px}
+/* 写真の席（写真が決まったら .bg に img を入れる） */
+.ph-photo .bg{background:repeating-linear-gradient(-45deg,#1f285c 0 14px,#232d64 14px 28px)}
+.ph-photo .bg::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,22,58,0) 40%,rgba(16,22,58,.85) 100%)}
+.ph-photo .bg::after{content:"写真の席";position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font-size:13px;letter-spacing:.2em;color:rgba(255,255,255,.6);border:1px dashed rgba(255,255,255,.4);padding:6px 18px;border-radius:999px;white-space:nowrap}
+/* 新しいお知らせのスライド */
+.s-news .bg{background:radial-gradient(120% 90% at 85% 15%,#3a4a9a 0%,var(--navy) 45%,var(--navy-deep) 100%)}
+.s-news.n2 .bg{background:linear-gradient(135deg,#1c2560 0%,#2c3a82 60%,#3c4c97 100%)}
+.s-news.n3 .bg{background:radial-gradient(110% 90% at 15% 85%,#34448f 0%,var(--navy) 50%,var(--navy-deep) 100%)}
+.s-news .bg::after{content:"";position:absolute;right:-40px;top:-30px;width:220px;height:220px;background:url(img/jase_mark.png) center/contain no-repeat;opacity:.12}
+.s-news .kind{display:flex;gap:12px;align-items:center}
+.s-news .nd{font-family:var(--font-en);font-size:17px;letter-spacing:.04em;color:#fff;font-variant-numeric:lining-nums}
+.s-news .nl{font-size:11.5px;letter-spacing:.06em;background:#fff;color:var(--navy-deep);padding:0 8px;border-radius:2px}
+.s-news .ja{font-size:18px !important;margin-top:6px}
+.car.side .play{display:none}
+/* 創設者の札（学会について） */
+.founder-card{display:grid;grid-template-columns:104px 1fr;gap:22px;align-items:center}
+.founder-card .f-face{aspect-ratio:3/4;border-radius:6px;border:1px dashed rgba(255,255,255,.45);display:grid;place-items:center;font-size:12px;color:rgba(255,255,255,.7);background:repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0 10px,rgba(255,255,255,.09) 10px 20px)}
+.founder-card .ja{font-size:19px;margin-top:6px}
+
+/* 講習会：上の左に見出しと説明、右に講習会の様子の写真 */
+.sec-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:28px 56px;align-items:center;margin-bottom:34px}
+.sec-top .sec-lead{margin-bottom:0}
+/* 3つの系統を色で分ける。紺＝外科指導医、金＝リーダー、赤（ロゴの外輪の赤）＝研修医 */
+.c-group{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin-top:26px;padding:4px 0 8px;border-bottom:2px solid var(--navy)}
+.c-group:first-child{margin-top:0}
+.c-group::before{content:"";width:12px;height:12px;border-radius:2px;background:var(--navy)}
+.c-group b{font-family:var(--font-en);font-size:23px;font-weight:600;color:var(--navy-deep);line-height:1.2}
+.c-group span{font-size:13.5px;font-weight:700;color:var(--navy)}
+.c-group.ldr{border-color:var(--gold)}
+.c-group.ldr::before{background:var(--gold)}
+.c-group.ldr b,.c-group.ldr span{color:var(--gold-deep)}
+.c-group.res{border-color:var(--crimson)}
+.c-group.res::before{background:var(--crimson)}
+.c-group.res b,.c-group.res span{color:var(--crimson)}
+.course.edu{border-left:6px solid var(--navy)}
+.course.ldr{border-left:6px solid var(--gold);background:#fdfaf1}
+.course.ldr .c-name .en,.course.ldr .c-name .ja{color:var(--gold-deep)}
+.course.ldr .c-name .en em{color:#9c7a2e}
+.course.ldr .btn.navy{background:var(--gold-deep)}
+.course.res{border-left:6px solid var(--crimson);background:#fdf6f5}
+.course.res .c-name .en em,.course.res .c-name .ja{color:var(--crimson)}
+/* コースごとの中身 */
+.c-guide{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:6px}
+.c-guide .g{display:flex;flex-direction:column;gap:6px;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:8px;padding:18px 18px 16px;transition:border-color .2s,background .2s}
+.c-guide .g:hover{background:var(--paper)}
+.c-guide .g.ldr{border-top-color:var(--gold)}
+.c-guide .g.res{border-top-color:var(--crimson)}
+.g-en{font-family:var(--font-en);font-size:18px;font-weight:600;color:var(--navy-deep);line-height:1.15}
+.g-en em{font-style:normal;color:#9c7a2e}
+.g.ldr .g-en{color:var(--gold-deep)}
+.g.res .g-en em{color:var(--crimson)}
+.c-guide b{font-size:15.5px;color:var(--navy-deep);line-height:1.5}
+.g-who{font-size:13px;color:var(--sub);line-height:1.6;word-break:auto-phrase}
+.c-guide .go{margin-top:auto;padding-top:8px;font-size:13.5px;font-weight:700;color:var(--navy)}
+.c-guide .go::after{content:" ↑";color:var(--gold)}
+
+/* 創設者 */
+.founder{display:grid;grid-template-columns:260px 1fr;gap:44px;align-items:start}
+.founder .fill{aspect-ratio:3/4}
+.f-name{font-size:28px;font-weight:800;color:var(--navy-deep);letter-spacing:.08em;line-height:1.3}
+.f-name small{display:block;font-size:13.5px;font-weight:500;color:var(--sub);letter-spacing:.06em;margin-top:4px}
+.f-lead{margin:14px 0 22px;font-size:16px;color:#363b48;max-width:44em}
+.f-facts{grid-template-columns:5.2em 1fr}
+.f-facts dt{font-family:var(--font-en);font-size:18px;font-weight:600;line-height:1.5;color:var(--navy-deep);font-variant-numeric:lining-nums}
+.f-book{margin-top:22px;font-size:15px;background:var(--gold-wash);border:1px solid var(--gold-light);border-radius:6px;padding:14px 18px}
+.f-links{list-style:none;display:grid;gap:8px;margin-top:18px;font-size:14px}
+.f-links a{color:var(--navy);font-weight:700;border-bottom:1px solid var(--gold);word-break:auto-phrase}
+
+/* 会員の論文 */
+.pub-yr{font-family:var(--font-en);font-size:30px;font-weight:600;color:var(--navy-deep);border-bottom:1px solid var(--ink);padding-bottom:4px;margin-top:36px;font-variant-numeric:lining-nums}
+.pubs .pub-yr:first-child{margin-top:0}
+.pub-list{list-style:none}
+.pub-list li{display:grid;gap:3px;padding:16px 4px 16px 20px;border-bottom:1px solid var(--line);position:relative}
+.pub-list li::before{content:"";position:absolute;left:2px;top:25px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.pub-list b{font-size:16px;color:var(--navy-deep);line-height:1.55}
+.pub-list .au{font-size:14px;color:#363b48}
+.pub-list .src{font-size:14px;color:var(--sub)}
+.pub-list .lk{display:flex;gap:16px;font-size:13.5px;font-weight:700;margin-top:4px}
+.pub-list .lk a{color:var(--navy);border-bottom:1px solid var(--gold)}
+
+@media (max-width:1100px){
+  .c-guide{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .ph-body.has-side,.sec-top,.founder{grid-template-columns:1fr}
+  .founder .fill{max-width:220px;width:100%}
+}
+@media (max-width:600px){
+  .c-guide{grid-template-columns:1fr}
+  .ph-card{padding:22px 22px 20px}
+  .ph-card .big{font-size:32px}
+  .car.side .slide{aspect-ratio:4/3.3;padding:22px 20px}
+  .car.side .dots{left:20px}
+  .founder-card{grid-template-columns:80px 1fr;gap:16px}
+  .f-name{font-size:24px}
+  .f-facts{grid-template-columns:4.6em 1fr}
+  .pub-yr{font-size:26px}
+  .c-group b{font-size:20px}
+}
+/* 右に一枚あるページでは、頭の右の大きな透かしを消す（札と重なるため） */
+.ph:has(.has-side)::after{display:none}
+.g-en em{display:block}
+/* 右のスライドの動画：上に動画の絵、下に題名。絵の中の文字と題名が重ならないようにする */
+.car.side .s3 .bg{inset:0 0 auto 0;height:54%;background:#10163a}
+.car.side .s3 .bg img{opacity:1;mix-blend-mode:normal;object-fit:cover;object-position:center 30%}
+.car.side .s3 .bg::after{background:linear-gradient(180deg,rgba(16,22,58,0) 55%,rgba(16,22,58,1) 100%)}
+.car.side .s3{background:#10163a;justify-content:flex-end}
+.car.side .s3 .dots,.car.side .s3 ~ .dots{z-index:3}
+.car.side .slide.s3{aspect-ratio:16/11.5}
+.car.side .s3 .bg{height:50%;background:#000}
+.car.side .s3 .bg::after{background:linear-gradient(180deg,rgba(16,22,58,0) 45%,#10163a 100%)}
+
+/* v5 の点検で見つかった崩れの直し */
+/* 項目の中に太字や札があっても、文が列に割れないようにする（flex をやめて、点を左に置く） */
+.card li,.join-band li{display:block;position:relative;padding-left:18px}
+.card li::before,.join-band li::before{position:absolute;left:0;top:.72em;width:7px;height:7px;transform:none}
+.join-band li::before{width:8px;height:8px;top:.7em}
+.tags li{padding-left:11px}
+.resident .t{flex:1 1 auto;min-width:0}
+.values li{align-content:start}
+/* 入力欄をそろえる */
+.field input,.field select{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid #cfcab9;border-radius:6px;background-color:#fff;color:var(--ink);line-height:1.5}
+.field select{padding-right:38px}
+.check input{width:18px;padding:0}
+/* 題の中の日本語を文節で折る */
+.pub-list b,.f-links a{word-break:auto-phrase}
+/* コースごとの中身：Course の番号だけ次の行に置く */
+.g-en em{display:inline}
+.g.edu .g-en em{display:block}
+/* 動画のスライド：ポスターを切らずに全体を見せる */
+.car.side .s3 .bg img{object-fit:contain;object-position:center}
+@media (max-width:900px){
+  .founder .fill{justify-self:center}
+}
+@media (max-width:600px){
+  .car.side .slide.s3{aspect-ratio:4/4.6}
+  .car.side .s3 .bg{height:46%}
+}

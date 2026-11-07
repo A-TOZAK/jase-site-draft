@@ -19,8 +19,8 @@
 <!-- 帯・お知らせの帯・ヘッダー・フッターは index.html から tools/parts.py で写す。ここでは直さない -->
 <!-- part:bar -->
 <!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
-<div class="dm-bar dm-ui" data-version="v4" data-date="2026-11-03">
-<p><b>デザイン案 v4</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<div class="dm-bar dm-ui" data-version="v5" data-date="2026-11-07">
+<p><b>デザイン案 v5</b><span class="dm-date">2026年11月7日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
 <button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
 </div>
 <!-- /part:bar -->
@@ -30,12 +30,12 @@
 </div>
 <!-- /part:notice -->
 <!-- part:header -->
-<!-- ロゴの帯：今のサイトの帯にならい、両側に紋章、間に学会名。学会名は届いたロゴの字形で「学会」に組みかえた仮置き。正式な和文のロゴができたら img/jase_wordmark.svg を差しかえる -->
+<!-- ロゴの帯：両側に紋章（白い方のB）、間に学会名。どちらも2026年11月7日に届いた正式なロゴ（JASE_logo3_B）から切り出した画像 -->
 <div class="banner" data-sec="ロゴの帯">
 <div class="wrap">
 <a class="lockup" href="index.html" aria-label="日本外科教育学会 トップへ">
 <img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
-<img class="wordmark" src="img/jase_wordmark.svg" alt="" width="299" height="43">
+<img class="wordmark" src="img/jase_wordmark.png" alt="" width="389" height="56">
 <img src="img/jase_seal.png" alt="">
 </a>
 </div>
@@ -65,14 +65,23 @@
 <section class="ph" data-sec="ページの見出し">
 <div class="wrap">
 <nav class="crumb" aria-label="現在地"><a href="index.html">トップ</a><i>›</i><span>学会について</span></nav>
-<div class="ph-body">
-<div>
+<div class="ph-body has-side">
+<div class="ph-main">
 <p class="ph-en">About</p>
 <h1>学会について<small>About JASE</small></h1>
-</div>
 <p class="ph-lead phrase">日本外科教育学会のミッション、理事長のあいさつ、組織、あゆみをまとめました。定款などの規程も、このページから開けます。</p>
 </div>
-<nav class="toc" aria-label="このページの中"><a href="#mission">ミッション宣言</a><a href="#greeting">理事長あいさつ</a><a href="#org">組織</a><a href="#history">あゆみ</a><a href="#rules">規程など</a></nav>
+<aside class="ph-side ph-card founder-card" aria-label="学会の創設者">
+<div class="f-face" aria-hidden="true">写真の席</div>
+<div>
+<p class="kind">FOUNDER</p>
+<p class="ja">創設者　倉島 庸 先生</p>
+<p class="meta">2014年に、この学会の前身の日本外科教育研究会を立ち上げました。</p>
+<a class="go" href="#founder">創設者について</a>
+</div>
+</aside>
+</div>
+<nav class="toc" aria-label="このページの中"><a href="#mission">ミッション宣言</a><a href="#greeting">理事長あいさつ</a><a href="#founder">創設者</a><a href="#org">組織</a><a href="#history">あゆみ</a><a href="#rules">規程など</a></nav>
 </div>
 </section>
 
@@ -104,7 +113,37 @@
 </div>
 </section>
 
-<section class="sec white" id="org" data-sec="組織">
+<section class="sec white" id="founder" data-sec="創設者">
+<div class="wrap">
+<div class="sec-hd"><div><span class="en">Founder</span><h2>創設者　倉島 庸 先生</h2></div></div>
+<div class="founder">
+<div class="fill">倉島先生の写真の席です</div>
+<div>
+<p class="f-name">倉島 庸<small>くらしま よう　Yo Kurashima</small></p>
+<p class="f-lead phrase">日本の外科教育学を切り拓いた外科医です。カナダのマギル大学で外科教育を学んで帰国し、2014年に、この学会の前身である日本外科教育研究会を立ち上げました。</p>
+<dl class="facts f-facts">
+<dt>1997年</dt><dd>秋田大学医学部を卒業し、北海道大学の消化器外科学教室IIで外科医として歩み始めました。</dd>
+<dt>2009年</dt><dd>カナダのマギル大学に渡り、3年間、北米の外科教育の研究を学びました。</dd>
+<dt>2012年</dt><dd>帰国し、北海道大学の消化器外科IIに外科教育の研究室を開きました。同じ年、米国外科学会の International Education Scholar に、アジアから初めて選ばれました。のちに、北海道大学 クリニカルシミュレーションセンターの准教授を務めました。</dd>
+<dt>2014年</dt><dd>日本外科教育研究会を立ち上げ、代表世話人として、学術集会（Surgical Education Summit）を育てました。</dd>
+<dt>2020年</dt><dd>米国外科教育学会（Association for Surgical Education）から、Distinguished Mid-Career Educator Award を受けました。</dd>
+<dt>2021年</dt><dd>米国外科教育学会の International Taskforce の Chair を務め、日本とアジアの外科教育を世界につなぎました。</dd>
+<dt>2024年</dt><dd>8月18日、事故のため亡くなりました。設立を控えていた一般社団法人 日本外科教育学会の、初代理事長に就く予定でした。</dd>
+</dl>
+<p class="f-book phrase">先生が企画に加わった本<span class="nw">『外科医の育て方―外科教育を科学する』</span>（南江堂）は、亡くなったあとに仲間が仕上げ、<span class="nw">2026年4月</span>に出ました。</p>
+<ul class="f-links">
+<li><a class="ext" href="https://www.jstage.jst.go.jp/article/mededjapan/55/6/55_500/_pdf/-char/en" target="_blank" rel="noopener">医学教育 第55巻第6号「無双の外科医 倉島 庸先生を偲んで」</a></li>
+<li><a class="ext" href="https://www.jstage.jst.go.jp/article/mededjapan/55/6/55_503/_pdf/-char/en" target="_blank" rel="noopener">医学教育 第55巻第6号「倉島庸先生を偲んで」</a></li>
+<li><a class="ext" href="https://j-aso.org/posts_detail/-begUF_M" target="_blank" rel="noopener">日本日帰り手術推進機構「追悼 倉島庸先生」</a></li>
+<li><a class="ext" href="https://www.nankodo.co.jp/g/g9784524207350/" target="_blank" rel="noopener">南江堂『外科医の育て方』の紹介</a></li>
+</ul>
+<p class="dm-note dm-ui">経歴は、上の4つの文と紹介から、事実だけを写しました。米国外科学会の賞の名前と年は、文によって書き方が違うので、学会に確かめます。写真と、どこまで載せるかは、学会とご家族の確認のあとで決めます。</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="org" data-sec="組織">
 <div class="wrap">
 <div class="sec-hd"><div><span class="en">Organization</span><h2>組織</h2></div></div>
 <div class="org" aria-label="組織体制図の席">
@@ -120,7 +159,7 @@
 </div>
 </section>
 
-<section class="sec" id="history" data-sec="あゆみ">
+<section class="sec white" id="history" data-sec="あゆみ">
 <div class="wrap">
 <div class="sec-hd"><div><span class="en">History</span><h2>あゆみ</h2></div></div>
 <ol class="timeline">
@@ -147,7 +186,7 @@
 </div>
 </section>
 
-<section class="sec white" id="rules" data-sec="規程など">
+<section class="sec" id="rules" data-sec="規程など">
 <div class="wrap">
 <div class="sec-hd"><div><span class="en">Documents</span><h2>規程など</h2></div></div>
 <div class="doclinks">

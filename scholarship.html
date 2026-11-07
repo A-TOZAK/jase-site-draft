@@ -19,8 +19,8 @@
 <!-- 帯・お知らせの帯・ヘッダー・フッターは index.html から tools/parts.py で写す。ここでは直さない -->
 <!-- part:bar -->
 <!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
-<div class="dm-bar dm-ui" data-version="v4" data-date="2026-11-03">
-<p><b>デザイン案 v4</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<div class="dm-bar dm-ui" data-version="v5" data-date="2026-11-07">
+<p><b>デザイン案 v5</b><span class="dm-date">2026年11月7日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
 <button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
 </div>
 <!-- /part:bar -->
@@ -30,12 +30,12 @@
 </div>
 <!-- /part:notice -->
 <!-- part:header -->
-<!-- ロゴの帯：今のサイトの帯にならい、両側に紋章、間に学会名。学会名は届いたロゴの字形で「学会」に組みかえた仮置き。正式な和文のロゴができたら img/jase_wordmark.svg を差しかえる -->
+<!-- ロゴの帯：両側に紋章（白い方のB）、間に学会名。どちらも2026年11月7日に届いた正式なロゴ（JASE_logo3_B）から切り出した画像 -->
 <div class="banner" data-sec="ロゴの帯">
 <div class="wrap">
 <a class="lockup" href="index.html" aria-label="日本外科教育学会 トップへ">
 <img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
-<img class="wordmark" src="img/jase_wordmark.svg" alt="" width="299" height="43">
+<img class="wordmark" src="img/jase_wordmark.png" alt="" width="389" height="56">
 <img src="img/jase_seal.png" alt="">
 </a>
 </div>
@@ -65,12 +65,36 @@
 <section class="ph" data-sec="ページの見出し">
 <div class="wrap">
 <nav class="crumb" aria-label="現在地"><a href="index.html">トップ</a><i>›</i><span>留学奨学金</span></nav>
-<div class="ph-body">
-<div>
+<div class="ph-body has-side">
+<div class="ph-main">
 <p class="ph-en">Scholarship</p>
 <h1>留学奨学金<small>Satoko and Richard Ingram McGill Surgical Education Scholarship</small></h1>
-</div>
 <p class="ph-lead phrase">カナダのマギル大学の大学院で、外科教育を2年間学ぶ人を支える奨学金です。学会の活動に賛同された方の寄付で始まりました。</p>
+</div>
+<div class="car side photos" aria-roledescription="carousel" aria-label="マギル大学とモントリオールの写真">
+<div class="track">
+<article class="slide ph-photo" aria-roledescription="slide" aria-label="1枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">McGILL UNIVERSITY</p>
+<p class="ja">マギル大学のキャンパスの写真</p>
+<p class="meta">写真は、学会から使ってよいと言われたものを入れます</p>
+</article>
+<article class="slide ph-photo" aria-roledescription="slide" aria-label="2枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">MONTRÉAL</p>
+<p class="ja">モントリオールの街並みの写真</p>
+<p class="meta">写真は、学会から使ってよいと言われたものを入れます</p>
+</article>
+<article class="slide ph-photo" aria-roledescription="slide" aria-label="3枚目（全3枚）">
+<div class="bg"></div>
+<p class="kind">GRADUATE STUDY</p>
+<p class="ja">大学院の授業と研究の様子の写真</p>
+<p class="meta">写真は、学会から使ってよいと言われたものを入れます</p>
+</article>
+</div>
+<div class="dots" role="tablist"><button aria-label="1枚目" aria-current="true"></button><button aria-label="2枚目"></button><button aria-label="3枚目"></button></div>
+<div class="car-ui"><button class="prev" aria-label="前へ">‹</button><button class="pause" aria-label="自動の切りかえを止める">Ⅱ</button><button class="next" aria-label="次へ">›</button></div>
+</div>
 </div>
 <nav class="toc" aria-label="このページの中"><a href="#now">いまの募集</a><a href="#about">どんな奨学金か</a><a href="#flow">応募の流れ</a><a href="#scholars">これまでの奨学生</a><a href="#qa">留学のQ&amp;A</a></nav>
 </div>

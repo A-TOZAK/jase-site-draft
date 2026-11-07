@@ -19,8 +19,8 @@
 <!-- 帯・お知らせの帯・ヘッダー・フッターは index.html から tools/parts.py で写す。ここでは直さない -->
 <!-- part:bar -->
 <!-- 下書きの帯：公開する本番では、この帯と draft-tools/ と robots の行を外す -->
-<div class="dm-bar dm-ui" data-version="v4" data-date="2026-11-03">
-<p><b>デザイン案 v4</b><span class="dm-date">2026年11月3日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
+<div class="dm-bar dm-ui" data-version="v5" data-date="2026-11-07">
+<p><b>デザイン案 v5</b><span class="dm-date">2026年11月7日</span><span class="dm-warn">公式サイトではありません。日付や費用は確認前です。</span></p>
 <button type="button" class="dm-toggle" aria-pressed="false">気になる所をメモ<span class="dm-count"></span></button>
 </div>
 <!-- /part:bar -->
@@ -30,12 +30,12 @@
 </div>
 <!-- /part:notice -->
 <!-- part:header -->
-<!-- ロゴの帯：今のサイトの帯にならい、両側に紋章、間に学会名。学会名は届いたロゴの字形で「学会」に組みかえた仮置き。正式な和文のロゴができたら img/jase_wordmark.svg を差しかえる -->
+<!-- ロゴの帯：両側に紋章（白い方のB）、間に学会名。どちらも2026年11月7日に届いた正式なロゴ（JASE_logo3_B）から切り出した画像 -->
 <div class="banner" data-sec="ロゴの帯">
 <div class="wrap">
 <a class="lockup" href="index.html" aria-label="日本外科教育学会 トップへ">
 <img src="img/jase_seal.png" alt="日本外科教育学会の紋章">
-<img class="wordmark" src="img/jase_wordmark.svg" alt="" width="299" height="43">
+<img class="wordmark" src="img/jase_wordmark.png" alt="" width="389" height="56">
 <img src="img/jase_seal.png" alt="">
 </a>
 </div>
@@ -65,12 +65,41 @@
 <section class="ph" data-sec="ページの見出し">
 <div class="wrap">
 <nav class="crumb" aria-label="現在地"><a href="index.html">トップ</a><i>›</i><span>教材と動画</span></nav>
-<div class="ph-body">
-<div>
+<div class="ph-body has-side">
+<div class="ph-main">
 <p class="ph-en">Library</p>
 <h1>教材と動画<small>Videos, Materials and Papers</small></h1>
-</div>
 <p class="ph-lead phrase">外科教育の動画、教材、会員の論文を集めたページです。動画は、学会のYouTubeチャンネルから、新しい順に並べています。</p>
+</div>
+<!-- videos:side -->
+<div class="car side" aria-roledescription="carousel" aria-label="新しい動画">
+<div class="track">
+<article class="slide s3" aria-roledescription="slide" aria-label="1枚目（全3枚）">
+<div class="bg"><img src="https://i.ytimg.com/vi/oIVFj2_jKL0/hqdefault.jpg" alt=""></div>
+<p class="kind">NEW VIDEO　ウェビナー</p>
+<p class="ja v-title">第13回 JASE ウェビナー　認知負荷（Cognitive load）を理解し、外科教育をより効率的に</p>
+<p class="meta">2025.02.06</p>
+<a class="go" href="https://www.youtube.com/watch?v=oIVFj2_jKL0" target="_blank" rel="noopener">YouTubeで見る</a>
+</article>
+<article class="slide s3" aria-roledescription="slide" aria-label="2枚目（全3枚）">
+<div class="bg"><img src="https://i.ytimg.com/vi/J9IHadBF4EY/hqdefault.jpg" alt=""></div>
+<p class="kind">NEW VIDEO　ウェビナー</p>
+<p class="ja v-title">第11回 JASE ウェビナー　外科医のパフォーマンス評価</p>
+<p class="meta">2024.11.25</p>
+<a class="go" href="https://www.youtube.com/watch?v=J9IHadBF4EY" target="_blank" rel="noopener">YouTubeで見る</a>
+</article>
+<article class="slide s3" aria-roledescription="slide" aria-label="3枚目（全3枚）">
+<div class="bg"><img src="https://i.ytimg.com/vi/goj7BOPpmwk/hqdefault.jpg" alt=""></div>
+<p class="kind">NEW VIDEO　ウェビナー</p>
+<p class="ja v-title">第10回 JASE ウェビナー　ど素人から始める効率的なデータ整理</p>
+<p class="meta">2024.08.14</p>
+<a class="go" href="https://www.youtube.com/watch?v=goj7BOPpmwk" target="_blank" rel="noopener">YouTubeで見る</a>
+</article>
+</div>
+<div class="dots" role="tablist"><button aria-label="1枚目" aria-current="true"></button><button aria-label="2枚目"></button><button aria-label="3枚目"></button></div>
+<div class="car-ui"><button class="prev" aria-label="前へ">‹</button><button class="pause" aria-label="自動の切りかえを止める">Ⅱ</button><button class="next" aria-label="次へ">›</button></div>
+</div>
+<!-- /videos:side -->
 </div>
 <nav class="toc" aria-label="このページの中"><a href="#videos">動画と対談</a><a href="#materials">教材</a><a href="#papers">会員の論文</a></nav>
 </div>
@@ -122,13 +151,25 @@
 <section class="sec white" id="papers" data-sec="会員の論文">
 <div class="wrap">
 <div class="sec-hd"><div><span class="en">Papers</span><h2>会員の論文</h2></div></div>
-<p class="sec-lead phrase">会員が発表した外科教育の論文を、新しい順に載せる欄の案です。</p>
-<ul class="papers">
-<li><b><span class="ex">例</span>論文の題名がここに入ります</b><span>著者名 ほか．雑誌名．2026．PubMed で読む ↗</span></li>
-<li><b><span class="ex">例</span>論文の題名がここに入ります</b><span>著者名 ほか．雑誌名．2026．PubMed で読む ↗</span></li>
-<li><b><span class="ex">例</span>論文の題名がここに入ります</b><span>著者名 ほか．雑誌名．2025．PubMed で読む ↗</span></li>
-</ul>
-<p class="dm-note dm-ui">PubMed から候補を自動で集め、月に1回、人が確かめてから載せる形を考えています。同じ名前の別の人の論文がまざるのを防ぐためです。</p>
+<p class="sec-lead phrase">会員が発表した外科教育の論文を、年ごとに、新しい年から載せます。いまは見本として、1人の会員の論文を入れています。</p>
+<div class="pubs">
+<h3 class="pub-yr">2026</h3>
+<ol class="pub-list">
+<li><b>Early Learning Curve of a Novice Surgeon in Robot-Assisted Pulmonary Resection: Assessment Using the Robot-Assisted Thoracic Surgery Assessment Tool (RATSAT), Derived From the Video-Assisted Thoracoscopic Surgery Assessment Tool (VATSAT)</b><span class="au">Ishido K, Fukunaga A, Poudel S, et al.</span><span class="src"><i>Cureus</i>. 2026;18(6):e111262.</span><span class="lk"><a class="ext" href="https://doi.org/10.7759/cureus.111262" target="_blank" rel="noopener">DOI </a></span></li>
+<li><b>【次世代を拓く整形外科教育】（II章）診療教育　外科医のノンテクニカルスキル</b><span class="au">石堂 敬太, 佐野 海渡, 本吉 章嵩, 内藤 善, Saseem Poudel, 平野 聡</span><span class="src"><i>整形外科</i>. 2026;77(6):541-544.</span></li>
+<li><b>Burnout as a process driver of surgical attrition: a narrative review of the path to dropout</b><span class="au">Ishido K, Sano K, Poudel S, et al.</span><span class="src"><i>Global Surgical Education</i>. 2026;5:7.</span><span class="lk"><a class="ext" href="https://doi.org/10.1007/s44186-025-00418-x" target="_blank" rel="noopener">DOI </a></span></li>
+</ol>
+<h3 class="pub-yr">2025</h3>
+<ol class="pub-list">
+<li><b>新人器械出し看護師の「見える学び」を支援する——評価ツール“SCOPE”で変わる手術室教育の可能性</b><span class="au">石堂 敬太</span><span class="src"><i>OPE nursing</i>. 2025;40(11):1149-52.</span></li>
+<li><b>Feasibility of a mutual intraoperative evaluation system for residents and attendings in Japan: a pilot single-center study</b><span class="au">Ishido K, Poudel S, Ishizuka Y, et al.</span><span class="src"><i>Global Surgical Education</i>. 2025;4:83.</span><span class="lk"><a class="ext" href="https://doi.org/10.1007/s44186-025-00396-0" target="_blank" rel="noopener">DOI </a></span></li>
+<li><b>Cultural and Organizational Resistance to Surgical Education Reform: A Narrative Review</b><span class="au">Ishido K, Poudel S, Hirano S.</span><span class="src"><i>J Surg Educ</i>. 2025;82(9):103587.</span><span class="lk"><a class="ext" href="https://doi.org/10.1016/j.jsurg.2025.103587" target="_blank" rel="noopener">DOI </a><a class="ext" href="https://pubmed.ncbi.nlm.nih.gov/40580607/" target="_blank" rel="noopener">PubMed </a></span></li>
+<li><b>Challenges faced by novice surgeons in preoperative preparation for emergency surgery: a qualitative study</b><span class="au">Ishido K, Hayashi M, Poudel S, et al.</span><span class="src"><i>Global Surgical Education</i>. 2025;4:68.</span><span class="lk"><a class="ext" href="https://doi.org/10.1007/s44186-025-00379-1" target="_blank" rel="noopener">DOI </a></span></li>
+<li><b>Developing an objective framework for scrub nurse training: A Japanese pilot study</b><span class="au">Ishido K, Tsukada M, Tazawa R, Poudel S, Motoyoshi A, Naito Z, Hirano S.</span><span class="src"><i>Journal of Perioperative Nursing</i>. 2025;38(3):8–13, s-4–s-5.</span><span class="lk"><a class="ext" href="https://doi.org/10.26550/2209-1092.1384" target="_blank" rel="noopener">DOI </a></span></li>
+<li><b>Differences in Preoperative Preparation Between Novice Surgeons and Experts: A Scoping Review</b><span class="au">Ishido K, Kiriyama K, Poudel S, Hiradate M, Kono Y, Kurashima Y, Hirano S.</span><span class="src"><i>J Surg Educ</i>. 2025;82(7):103540.</span><span class="lk"><a class="ext" href="https://doi.org/10.1016/j.jsurg.2025.103540" target="_blank" rel="noopener">DOI </a><a class="ext" href="https://pubmed.ncbi.nlm.nih.gov/40378681/" target="_blank" rel="noopener">PubMed </a></span></li>
+</ol>
+</div>
+<p class="dm-note dm-ui">北海道大学 消化器外科IIの外科教育チームが載せている論文の一覧から、移すことを考えています。この一覧には、チームの方が共著者に入っている論文も入っているため、筆頭著者が学会の会員でないものもまざります。載せる前に、会員の論文かどうかを確かめる手順を入れます。PubMed と DOI のリンクは、本当につないでいます。</p>
 </div>
 </section>
 </main>
